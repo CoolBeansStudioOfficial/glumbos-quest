@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Glumbo-s Quest"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
