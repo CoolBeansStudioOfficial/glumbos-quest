@@ -52,5 +52,13 @@ public partial class HomingEnemy : CharacterBody3D
 
         MoveAndSlide();
         secondsLeft -= (float)delta;
+
+        for (int i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            if (GetSlideCollision(i).GetCollider() is Player player)
+            {
+                GD.Print("ive been hit!");
+            }
+        }
     }
 }

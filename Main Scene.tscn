@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c0gntryofpfrw"]
 
-[ext_resource type="Texture2D" uid="uid://icuc6rwds87s" path="res://texture.png" id="1_2uwcf"]
 [ext_resource type="PackedScene" uid="uid://u57jqlhdaam4" path="res://Scenes/Prefabs/Cube.tscn" id="2_nxxrv"]
 [ext_resource type="PackedScene" uid="uid://car5f87armnav" path="res://Scenes/Prefabs/Homing Enemy.tscn" id="3_2uwcf"]
+[ext_resource type="Texture2D" uid="uid://b13l8leoatiwt" path="res://Tile.png" id="3_ww3rf"]
 [ext_resource type="Script" uid="uid://clh05muj2wsjm" path="res://Scripts/EnemySpawner.cs" id="4_ww3rf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h7pfk"]
@@ -15,18 +15,15 @@ background_mode = 2
 sky = SubResource("Sky_nxxrv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h7pfk"]
-size = Vector3(100, 1, 100)
+size = Vector3(100, 0, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qg7el"]
-albedo_texture = ExtResource("1_2uwcf")
+albedo_color = Color(0.4351923, 0.43519226, 0.43519226, 1)
+albedo_texture = ExtResource("3_ww3rf")
+uv1_scale = Vector3(15, 15, 15)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4phd"]
-albedo_color = Color(0.5636256, 0.5636255, 0.5636255, 1)
-albedo_texture = ExtResource("1_2uwcf")
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_h7pfk"]
-material = SubResource("StandardMaterial3D_h4phd")
+[sub_resource type="PlaneMesh" id="PlaneMesh_h4phd"]
+material = SubResource("StandardMaterial3D_qg7el")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2uwcf"]
 albedo_color = Color(0, 0.6156155, 0.91794807, 1)
@@ -42,6 +39,7 @@ material = SubResource("StandardMaterial3D_ww3rf")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxxrv"]
 albedo_color = Color(1, 0.28627452, 0.18039216, 1)
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_t0tp6"]
 material = SubResource("StandardMaterial3D_nxxrv")
@@ -51,6 +49,30 @@ albedo_color = Color(0.32656053, 0.6792394, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qg7el"]
 material = SubResource("StandardMaterial3D_t0tp6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4phd"]
+albedo_color = Color(1, 0.28627452, 0.18039216, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ejt0"]
+material = SubResource("StandardMaterial3D_h4phd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pey1u"]
+albedo_color = Color(0.3254902, 0.6784314, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3e0ao"]
+material = SubResource("StandardMaterial3D_pey1u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4pxk"]
+albedo_color = Color(0, 0.6156863, 0.91764706, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_14f5m"]
+material = SubResource("StandardMaterial3D_q4pxk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nul8a"]
+albedo_color = Color(0.7490196, 0.59607846, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1i8vm"]
+material = SubResource("StandardMaterial3D_nul8a")
 
 [node name="Scene" type="Node3D" unique_id=1037443194]
 
@@ -66,41 +88,72 @@ environment = SubResource("Environment_2uwcf")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1667722575]
 transform = Transform3D(0.09646112, -0.98799235, 0.12069214, 0.4138165, 0.1500892, 0.8979026, -0.90523535, -0.036668282, 0.4233253, 0, 0, 0)
+visible = false
 shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1341385539]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 30, 30, 0)
+light_color = Color(1, 0, 0, 1)
+spot_range = 43.202
+spot_attenuation = 0.13
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1958437752]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -30, 30, 0)
+light_color = Color(0, 1, 0, 1)
+spot_range = 43.202
+spot_attenuation = 0.13
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=310713433]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30, 30)
+light_color = Color(0, 0, 1, 1)
+spot_range = 43.202
+spot_attenuation = 0.13
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="." unique_id=1485088013]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30, -30)
+light_color = Color(1, 1, 0, 1)
+spot_range = 43.202
+spot_attenuation = 0.13
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=1071412563]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1135191588]
 shape = SubResource("BoxShape3D_h7pfk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D" unique_id=1275840907]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_qg7el")
-mesh = SubResource("BoxMesh_h7pfk")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=48248140]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+mesh = SubResource("PlaneMesh_h4phd")
 
 [node name="Cube" parent="." unique_id=1108776042 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(112.90031, 0, 0, 0, 65.07597, 0, 0, 0, 1, 0, 2.308, 49.576)
+transform = Transform3D(100, 0, 0, 0, 60, 0, 0, 0, 1, 0, 0, 50)
 mesh = SubResource("BoxMesh_2uwcf")
 
 [node name="Cube4" parent="." unique_id=1522109947 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(112.90031, 0, 0, 0, 64.76904, 0, 0, 0, 1, 0, 2.308, -49.763)
+transform = Transform3D(100, 0, 0, 0, 60, 0, 0, 0, 1, 0, 0, -50)
 mesh = SubResource("BoxMesh_ww3rf")
 
 [node name="Cube2" parent="." unique_id=1102120126 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(1, 0, 0, 0, 62.77328, 0, 0, 0, 130.95924, 47.975, 3.441, 0)
+transform = Transform3D(1, 0, 0, 0, 60, 0, 0, 0, 100, 50, 0, 0)
 mesh = SubResource("BoxMesh_t0tp6")
 
 [node name="Cube3" parent="." unique_id=2013189503 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(1, 0, 0, 0, 60.8547, 0, 0, 0, 131.43814, -49.992, 4.403, 0)
+transform = Transform3D(1, 0, 0, 0, 60, 0, 0, 0, 100, -50, 0, 0)
 mesh = SubResource("BoxMesh_qg7el")
 
 [node name="Platforms" type="Node3D" parent="." unique_id=718859533]
 
-[node name="Cube5" parent="Platforms" unique_id=273424074 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(10.383139, 0, 0, 0, 0.82529086, -8.163785, 0, 0.5647077, 11.930946, -22.737854, 1.437365, -4.0017757)
-
-[node name="Cube6" parent="Platforms" unique_id=1008992189 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(4.144587, -0.5177687, -10.939235, 0, 0.82529074, -8.163784, 9.5200815, 0.22541161, 4.7624164, -31.441679, 3.8161983, 28.836246)
-
 [node name="Cube7" parent="Platforms" unique_id=2084135654 instance=ExtResource("2_nxxrv")]
-transform = Transform3D(0.86179566, 0.5627591, 11.889777, 0, 0.82529056, -8.163782, -10.34731, 0.046870455, 0.99026513, 29.543047, 0.9400387, -0.9338989)
+transform = Transform3D(11.161258, 3.0507312, -3.72111, -5.031882, 7.341815, 0, 3.2534208, 0.88926476, 12.765719, 30.082842, -1.2179441, 14.014887)
+mesh = SubResource("BoxMesh_0ejt0")
+
+[node name="Cube8" parent="Platforms" unique_id=2051201190 instance=ExtResource("2_nxxrv")]
+transform = Transform3D(-11.110271, -3.0367956, 3.9156208, -5.0318823, 7.3418155, 3.1141934e-07, -3.423485, -0.93574846, -12.707405, -30.083, -1.218, -14.015)
+mesh = SubResource("BoxMesh_3e0ao")
+
+[node name="Cube9" parent="Platforms" unique_id=557357034 instance=ExtResource("2_nxxrv")]
+transform = Transform3D(-2.911645, -0.7958466, -12.873228, -5.0318823, 7.3418155, 3.0693794e-08, 11.255253, 3.0764234, -3.3302035, -13.091395, -1.2179441, 30.49614)
+mesh = SubResource("BoxMesh_14f5m")
+
+[node name="Cube10" parent="Platforms" unique_id=615865364 instance=ExtResource("2_nxxrv")]
+transform = Transform3D(3.0831857, 0.84273356, 12.820874, -5.0318847, 7.3418183, 5.5971975e-07, -11.209478, -3.063913, 3.5264018, 13.091237, -1.218, -30.496254)
+mesh = SubResource("BoxMesh_1i8vm")

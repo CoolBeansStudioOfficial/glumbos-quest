@@ -8,10 +8,9 @@
 
 [node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
 script = ExtResource("1_0l4qa")
-speed = 800.0
+speed = 700.0
 deceleration = 10.0
 fallMultiplier = 1.0
-jumpVelocity = 6.0
 waitSeconds = 3.0
 chargeSeconds = 0.3
 
