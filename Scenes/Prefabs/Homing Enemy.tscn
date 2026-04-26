@@ -24,3 +24,5 @@ shape = SubResource("BoxShape3D_0l4qa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1343049663]
 mesh = SubResource("PrismMesh_rm3ys")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1360662895]

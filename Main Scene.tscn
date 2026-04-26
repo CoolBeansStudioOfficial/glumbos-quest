@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0gntryofpfrw"]
 
 [ext_resource type="PackedScene" uid="uid://u57jqlhdaam4" path="res://Scenes/Prefabs/Cube.tscn" id="2_nxxrv"]
-[ext_resource type="Texture2D" uid="uid://b13l8leoatiwt" path="res://Tile.png" id="3_ww3rf"]
+[ext_resource type="Texture2D" uid="uid://b13l8leoatiwt" path="res://Images/Tile.png" id="3_ww3rf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h7pfk"]
 
