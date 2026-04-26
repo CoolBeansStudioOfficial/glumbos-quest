@@ -6,8 +6,10 @@ public partial class EnemySpawner : Node3D
 {
 	[Export] PackedScene enemyScene;
 	[Export] float spawnTime;
+	[Export] Vector3 spawnPosition;
+    [Export] int maxEnemies;
 
-	List<HomingEnemy> enemies = [];
+    List<HomingEnemy> enemies = [];
 	float timeLeft = 0;
 
 	public override void _Ready()
@@ -22,9 +24,10 @@ public partial class EnemySpawner : Node3D
 		{
             timeLeft = spawnTime;
 
-			if (enemies.Count > 100) return;
+			if (enemies.Count > maxEnemies) return;
 
             var enemy = enemyScene.Instantiate() as HomingEnemy;
+			enemy.Position = spawnPosition;
 			AddChild(enemy);
 			enemies.Add(enemy);
 		}

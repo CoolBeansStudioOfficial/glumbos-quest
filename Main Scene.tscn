@@ -55,10 +55,11 @@ material = SubResource("StandardMaterial3D_t0tp6")
 [node name="Scene" type="Node3D" unique_id=1037443194]
 
 [node name="Enemy Spawner" type="Node3D" parent="." unique_id=893196451]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.363298, 1.1006165, 0.067560196)
 script = ExtResource("4_ww3rf")
 enemyScene = ExtResource("3_2uwcf")
-spawnTime = 1.0
+spawnTime = 6.0
+spawnPosition = Vector3(0, 10, 0)
+maxEnemies = 50
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1768038107]
 environment = SubResource("Environment_2uwcf")

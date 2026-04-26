@@ -71,12 +71,13 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 
-		if (GetLastSlideCollision() is not null)
+		for (int i = 0; i < GetSlideCollisionCount(); i++)
 		{
-            if (GetLastSlideCollision().GetCollider() is HomingEnemy enemy)
+            if (GetSlideCollision(i).GetCollider() is HomingEnemy enemy)
             {
                 GD.Print("ive been hit!");
             }
         }
+		
 	}
 }
