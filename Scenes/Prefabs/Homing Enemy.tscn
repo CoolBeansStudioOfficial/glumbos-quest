@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://car5f87armnav"]
+
+[ext_resource type="Script" uid="uid://dym5kujh7jdkd" path="res://Scripts/HomingEnemy.cs" id="1_0l4qa"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxxrv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2uwcf"]
+
+[node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
+script = ExtResource("1_0l4qa")
+speed = 800.0
+deceleration = 10.0
+fallMultiplier = 1.0
+jumpVelocity = 6.0
+waitSeconds = 3.0
+chargeSeconds = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=542976626]
+shape = SubResource("CapsuleShape3D_nxxrv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1343049663]
+mesh = SubResource("CapsuleMesh_2uwcf")

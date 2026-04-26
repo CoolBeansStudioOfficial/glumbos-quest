@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bynrgdbv2plcb"]
+
+[ext_resource type="Script" uid="uid://7eme30kl5hbx" path="res://Scripts/Player.cs" id="1_xhfnw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxxrv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2uwcf"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1985862885 node_paths=PackedStringArray("head")]
+script = ExtResource("1_xhfnw")
+head = NodePath("Head")
+SpeedCap = 8.0
+Acceleration = 100.0
+Deceleration = 0.1
+JumpVelocity = 7.5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2021142537]
+shape = SubResource("CapsuleShape3D_nxxrv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=365072286]
+mesh = SubResource("CapsuleMesh_2uwcf")
+
+[node name="Head" type="Node3D" parent="." unique_id=1349101914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
