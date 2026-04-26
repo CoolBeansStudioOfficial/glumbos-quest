@@ -4,11 +4,7 @@ using System;
 public partial class Enemy : CharacterBody3D
 {
 	[Export] float speed;
-	public override void _Ready()
-	{
-	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		Vector3 velocity = Velocity;
@@ -24,5 +20,13 @@ public partial class Enemy : CharacterBody3D
 
 		Velocity = velocity;
         MoveAndSlide();
-	}
+
+        for (int i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            if (GetSlideCollision(i).GetCollider() is Player player)
+            {
+                player.Hit();
+            }
+        }
+    }
 }

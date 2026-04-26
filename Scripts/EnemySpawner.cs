@@ -1,15 +1,16 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class EnemySpawner : Node3D
 {
-	[Export] PackedScene enemyScene;
+	[Export] PackedScene[] enemyScenes;
 	[Export] float spawnTime;
 	[Export] Vector3 spawnPosition;
     [Export] int maxEnemies;
 
-    List<HomingEnemy> enemies = [];
+    List<Enemy> enemies = [];
 	float timeLeft = 0;
 
 	public override void _Ready()
@@ -26,7 +27,7 @@ public partial class EnemySpawner : Node3D
 
 			if (enemies.Count > maxEnemies) return;
 
-            var enemy = enemyScene.Instantiate() as HomingEnemy;
+            var enemy = enemyScenes[GD.RandRange(0, enemyScenes.Count() - 1)].Instantiate() as Enemy;
 			enemy.Position = spawnPosition;
 			AddChild(enemy);
 			enemies.Add(enemy);

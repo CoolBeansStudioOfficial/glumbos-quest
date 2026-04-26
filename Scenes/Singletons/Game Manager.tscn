@@ -2,7 +2,17 @@
 
 [ext_resource type="Script" uid="uid://ci0n2qntynnob" path="res://Scripts/GameManager.cs" id="1_d2o0d"]
 [ext_resource type="PackedScene" uid="uid://bynrgdbv2plcb" path="res://Scenes/Prefabs/Player.tscn" id="2_3evnq"]
+[ext_resource type="Script" uid="uid://clh05muj2wsjm" path="res://Scripts/EnemySpawner.cs" id="3_6ttaq"]
+[ext_resource type="PackedScene" uid="uid://vw8g7u31uxc3" path="res://Scenes/Prefabs/Enemy.tscn" id="4_yvurs"]
+[ext_resource type="PackedScene" uid="uid://car5f87armnav" path="res://Scenes/Prefabs/Homing Enemy.tscn" id="5_uyn1v"]
 
 [node name="Game Manager" type="Node" unique_id=34629713]
 script = ExtResource("1_d2o0d")
 playerScene = ExtResource("2_3evnq")
+
+[node name="Enemy Spawner" type="Node3D" parent="." unique_id=1115749417]
+script = ExtResource("3_6ttaq")
+enemyScenes = Array[PackedScene]([ExtResource("4_yvurs"), ExtResource("5_uyn1v")])
+spawnTime = 3.3
+spawnPosition = Vector3(0, 10, 0)
+maxEnemies = 50

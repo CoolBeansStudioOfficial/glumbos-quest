@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class HomingEnemy : CharacterBody3D
+public partial class HomingEnemy : Enemy
 {
     [Export] float speed;
     [Export] float deceleration;
@@ -50,6 +50,8 @@ public partial class HomingEnemy : CharacterBody3D
             Velocity += GetGravity() * (float)delta * fallMultiplier;
         }
 
+        Transform = Transform.LookingAt(GameManager.Singleton.player.Position);
+
         MoveAndSlide();
         secondsLeft -= (float)delta;
 
@@ -57,7 +59,7 @@ public partial class HomingEnemy : CharacterBody3D
         {
             if (GetSlideCollision(i).GetCollider() is Player player)
             {
-                GD.Print("ive been hit!");
+                player.Hit();
             }
         }
     }

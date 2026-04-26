@@ -2,15 +2,20 @@
 
 [ext_resource type="Script" uid="uid://482rnsxgrixs" path="res://Scripts/Enemy.cs" id="1_tt7e2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxxrv"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ugnox"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_2uwcf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugnox"]
+albedo_color = Color(0.2741638, 0.45620894, 0.5128791, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0p0aa"]
+material = SubResource("StandardMaterial3D_ugnox")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=321441980]
 script = ExtResource("1_tt7e2")
+speed = 600.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625218609]
-shape = SubResource("CapsuleShape3D_nxxrv")
+shape = SubResource("SphereShape3D_ugnox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1795611012]
-mesh = SubResource("CapsuleMesh_2uwcf")
+mesh = SubResource("SphereMesh_0p0aa")

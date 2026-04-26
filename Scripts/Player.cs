@@ -71,4 +71,9 @@ public partial class Player : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
+	public void Hit()
+	{
+		Velocity = new(Velocity.X, JumpVelocity * 3, Velocity.Z);
+	}
 }
