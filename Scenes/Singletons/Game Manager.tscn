@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://kbfl7mmnw5dr" path="res://Scenes/UI/HUD.tscn" id="6_yvurs"]
 [ext_resource type="PackedScene" uid="uid://dhrx4taeejhkt" path="res://Scenes/Prefabs/Coin.tscn" id="9_0h5bj"]
 [ext_resource type="Script" uid="uid://disgas3s0dxk0" path="res://Scripts/Spin.cs" id="10_fpsrd"]
+[ext_resource type="PackedScene" uid="uid://bjhfqaq47py4v" path="res://Scenes/Prefabs/Mega Enemy.tscn" id="10_o7j3t"]
+[ext_resource type="PackedScene" uid="uid://oefgfcpuoewo" path="res://Scenes/Prefabs/Mega Homing Enemy.tscn" id="11_r34ae"]
 
 [node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "hud", "menuPoint", "coin")]
 script = ExtResource("1_d2o0d")
@@ -37,7 +39,7 @@ visible = false
 
 [node name="Enemy Spawner" type="Node3D" parent="." unique_id=1115749417]
 script = ExtResource("3_6ttaq")
-enemyScenes = Array[PackedScene]([ExtResource("4_yvurs"), ExtResource("5_uyn1v")])
+enemyScenes = Array[PackedScene]([ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("10_o7j3t"), ExtResource("11_r34ae")])
 spawnTime = 4.0
 maxEnemies = 50
 
