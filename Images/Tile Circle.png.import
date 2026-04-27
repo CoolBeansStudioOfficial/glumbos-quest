@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmyiuwpvga0d"
-path.s3tc="res://.godot/imported/Heart.png-b9b5549f6500b51bee4e41f7bcd2f48e.s3tc.ctex"
+uid="uid://ckquadnjuunt0"
+path.s3tc="res://.godot/imported/Tile Circle.png-a68c04e4336e65d59a5ae69bf438d099.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Images/Heart.png"
-dest_files=["res://.godot/imported/Heart.png-b9b5549f6500b51bee4e41f7bcd2f48e.s3tc.ctex"]
+source_file="res://Images/Tile Circle.png"
+dest_files=["res://.godot/imported/Tile Circle.png-a68c04e4336e65d59a5ae69bf438d099.s3tc.ctex"]
 
 [params]
 

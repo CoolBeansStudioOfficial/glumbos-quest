@@ -1,28 +1,30 @@
 [gd_scene format=3 uid="uid://car5f87armnav"]
 
 [ext_resource type="Script" uid="uid://dym5kujh7jdkd" path="res://Scripts/HomingEnemy.cs" id="1_0l4qa"]
+[ext_resource type="Texture2D" uid="uid://hhi38oegh5at" path="res://Images/Triangle Enemy.png" id="2_rm3ys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0l4qa"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l4qa"]
-albedo_color = Color(0.63602555, 0.32843876, 0.1493712, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn4wr"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_rm3ys")
+texture_filter = 0
+billboard_mode = 1
 
-[sub_resource type="PrismMesh" id="PrismMesh_rm3ys"]
-material = SubResource("StandardMaterial3D_0l4qa")
+[sub_resource type="QuadMesh" id="QuadMesh_e80hq"]
+material = SubResource("StandardMaterial3D_gn4wr")
 
 [node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
 script = ExtResource("1_0l4qa")
-speed = 700.0
+chargeSpeed = 35.0
 deceleration = 10.0
 fallMultiplier = 1.0
-waitSeconds = 3.0
-chargeSeconds = 0.3
+waitSeconds = 4.0
 speed = 700.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=542976626]
 shape = SubResource("BoxShape3D_0l4qa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1343049663]
-mesh = SubResource("PrismMesh_rm3ys")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1360662895]
+mesh = SubResource("QuadMesh_e80hq")

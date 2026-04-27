@@ -1,23 +1,27 @@
 [gd_scene format=3 uid="uid://vw8g7u31uxc3"]
 
 [ext_resource type="Script" uid="uid://482rnsxgrixs" path="res://Scripts/Enemy.cs" id="1_tt7e2"]
+[ext_resource type="Texture2D" uid="uid://cc0m4pa4nbjre" path="res://Images/Square Enemy.png" id="2_0p0aa"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ugnox"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ugnox"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ugnox"]
-albedo_color = Color(0.2741638, 0.45620894, 0.5128791, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijqxc"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_0p0aa")
+texture_filter = 0
+billboard_mode = 1
+stencil_flags = 2
 
-[sub_resource type="SphereMesh" id="SphereMesh_0p0aa"]
-material = SubResource("StandardMaterial3D_ugnox")
+[sub_resource type="QuadMesh" id="QuadMesh_kfuwx"]
+material = SubResource("StandardMaterial3D_ijqxc")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=321441980]
 script = ExtResource("1_tt7e2")
-speed = 100.0
+speed = 1500.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625218609]
-shape = SubResource("SphereShape3D_ugnox")
+shape = SubResource("BoxShape3D_ugnox")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1795611012]
-mesh = SubResource("SphereMesh_0p0aa")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1906166432]
+mesh = SubResource("QuadMesh_kfuwx")

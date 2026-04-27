@@ -20,7 +20,7 @@ hud = NodePath("CanvasLayer/HUD")
 [node name="Enemy Spawner" type="Node3D" parent="." unique_id=1115749417]
 script = ExtResource("3_6ttaq")
 enemyScenes = Array[PackedScene]([ExtResource("4_yvurs"), ExtResource("5_uyn1v")])
-spawnTime = 3.3
+spawnTime = 4.0
 maxEnemies = 50
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1124059323]

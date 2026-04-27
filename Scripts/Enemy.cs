@@ -10,7 +10,8 @@ public partial class Enemy : CharacterBody3D
         if (GameManager.Singleton.paused) return;
 
         Vector3 velocity = Velocity;
-		Vector3 toPlayer = (GameManager.Singleton.player.Position - Position) * speed * (float)delta;
+        Vector3 direction = (GameManager.Singleton.player.Position - Position) / Position.DistanceTo(GameManager.Singleton.player.Position);
+        Vector3 toPlayer = direction * speed * (float)delta;
 		velocity.X = toPlayer.X;
 		velocity.Z = toPlayer.Z;
 
@@ -20,7 +21,7 @@ public partial class Enemy : CharacterBody3D
             velocity += GetGravity() * (float)delta;
         }
 
-		Velocity = velocity;
+        Velocity = velocity;
         MoveAndSlide();
 
         for (int i = 0; i < GetSlideCollisionCount(); i++)

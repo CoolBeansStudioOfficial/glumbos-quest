@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://u57jqlhdaam4" path="res://Scenes/Prefabs/Cube.tscn" id="2_nxxrv"]
 [ext_resource type="Texture2D" uid="uid://mo23ot4iv5oi" path="res://Images/TileX.png" id="3_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b13l8leoatiwt" path="res://Images/Tile.png" id="3_ww3rf"]
+[ext_resource type="Texture2D" uid="uid://ckquadnjuunt0" path="res://Images/Tile Circle.png" id="4_v87v2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h7pfk"]
 
@@ -67,24 +68,40 @@ material = SubResource("StandardMaterial3D_t0tp6")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4phd"]
 albedo_color = Color(1, 0.28627452, 0.18039216, 1)
+albedo_texture = ExtResource("4_v87v2")
+uv1_scale = Vector3(30, 30, 30)
+uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_0ejt0"]
 material = SubResource("StandardMaterial3D_h4phd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pey1u"]
 albedo_color = Color(0.3254902, 0.6784314, 0, 1)
+albedo_texture = ExtResource("4_v87v2")
+uv1_scale = Vector3(30, 30, 30)
+uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_3e0ao"]
 material = SubResource("StandardMaterial3D_pey1u")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4pxk"]
 albedo_color = Color(0, 0.6156863, 0.91764706, 1)
+albedo_texture = ExtResource("4_v87v2")
+uv1_scale = Vector3(30, 30, 30)
+uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_14f5m"]
 material = SubResource("StandardMaterial3D_q4pxk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nul8a"]
 albedo_color = Color(0.7490196, 0.59607846, 0, 1)
+albedo_texture = ExtResource("4_v87v2")
+uv1_scale = Vector3(30, 30, 30)
+uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_1i8vm"]
 material = SubResource("StandardMaterial3D_nul8a")

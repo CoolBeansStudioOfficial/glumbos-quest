@@ -6,5 +6,6 @@
 texture = ExtResource("1_qcnf0")
 
 [node name="Heart" type="Panel" unique_id=912188893]
+texture_filter = 1
 custom_minimum_size = Vector2(50, 50)
 theme_override_styles/panel = SubResource("StyleBoxTexture_qc5w2")

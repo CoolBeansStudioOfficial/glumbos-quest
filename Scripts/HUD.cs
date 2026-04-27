@@ -14,6 +14,8 @@ public partial class HUD : Control
 	{
 		foreach (var heart in hearts) heart.Visible = false;
 
+		if (count <= 0) return;
+
 		for (int i = 0; i < count; i++)
 		{
 			hearts[i].Visible = true;

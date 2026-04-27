@@ -33,6 +33,10 @@ project/assembly_name="Glumbo-s Quest"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://b2yd3pxi3283a"
+
 [input]
 
 move_forward={

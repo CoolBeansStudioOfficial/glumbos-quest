@@ -3,47 +3,33 @@ using System;
 
 public partial class HomingEnemy : Enemy
 {
-    [Export] float speed;
+    [Export] float chargeSpeed;
     [Export] float deceleration;
     [Export] float fallMultiplier;
     [Export] float waitSeconds;
-    [Export] float chargeSeconds;
 
-    bool charging = false;
     float secondsLeft;
-    Vector3 targetPosition;
 
     public override void _Ready()
     {
         secondsLeft = waitSeconds;
-        targetPosition = GameManager.Singleton.player.Position;
     }
 
     public override void _Process(double delta)
     {
         if (GameManager.Singleton.paused) return;
 
-        if (charging)
+        if (secondsLeft > 0)
         {
-            Vector3 velocity  = (targetPosition - Position) * speed * (float)delta;
-            Velocity = velocity;
-
-            if (secondsLeft <= 0)
-            {
-                charging = false;
-                secondsLeft = waitSeconds;
-            }
+            Velocity = new(Mathf.MoveToward(Velocity.X, 0, deceleration * (float)delta), Velocity.Y, Mathf.MoveToward(Velocity.Z, 0, deceleration * (float)delta));
         }
         else
         {
-            Velocity = new(Mathf.MoveToward(Velocity.X, 0, deceleration * (float)delta), Velocity.Y, Mathf.MoveToward(Velocity.Z, 0, deceleration * (float)delta));
+            Vector3 direction = (GameManager.Singleton.player.Position - Position) / Position.DistanceTo(GameManager.Singleton.player.Position);
+            Vector3 velocity = direction * chargeSpeed;
+            Velocity = velocity;
 
-            if (secondsLeft <= 0)
-            {
-                charging = true;
-                secondsLeft = chargeSeconds;
-                targetPosition = GameManager.Singleton.player.Position;
-            }
+            secondsLeft = waitSeconds;
         }
 
         // Add the gravity.
@@ -51,8 +37,6 @@ public partial class HomingEnemy : Enemy
         {
             Velocity += GetGravity() * (float)delta * fallMultiplier;
         }
-
-        Transform = Transform.LookingAt(GameManager.Singleton.player.Position);
 
         MoveAndSlide();
         secondsLeft -= (float)delta;

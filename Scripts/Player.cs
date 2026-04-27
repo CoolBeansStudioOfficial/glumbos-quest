@@ -125,7 +125,7 @@ public partial class Player : CharacterBody3D
 		{
 			hearts--;
 			GameManager.Singleton.hud.SetHearts(hearts);
-            Velocity = new(Velocity.X, JumpVelocity * 3, Velocity.Z);
+            Velocity = new(Velocity.X, JumpVelocity * 2, Velocity.Z);
             hitCooldown = 5;
 
 			if (hearts == 0) GameManager.Singleton.EndGame();

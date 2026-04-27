@@ -65,5 +65,7 @@ public partial class GameManager : Node
 		hud.Visible = false;
 		mainMenu.Visible = true;
 		inMenu = true;
-	}
+
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+    }
 }
