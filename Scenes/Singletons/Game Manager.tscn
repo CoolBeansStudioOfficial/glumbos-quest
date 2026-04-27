@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ci0n2qntynnob" path="res://Scripts/GameManager.cs" id="1_d2o0d"]
 [ext_resource type="PackedScene" uid="uid://bynrgdbv2plcb" path="res://Scenes/Prefabs/Player.tscn" id="2_3evnq"]
 [ext_resource type="Script" uid="uid://clh05muj2wsjm" path="res://Scripts/EnemySpawner.cs" id="3_6ttaq"]
+[ext_resource type="PackedScene" uid="uid://c0gntryofpfrw" path="res://Scenes/Main Scene.tscn" id="3_tpd2j"]
 [ext_resource type="PackedScene" uid="uid://vw8g7u31uxc3" path="res://Scenes/Prefabs/Enemy.tscn" id="4_yvurs"]
 [ext_resource type="PackedScene" uid="uid://car5f87armnav" path="res://Scenes/Prefabs/Homing Enemy.tscn" id="5_uyn1v"]
 [ext_resource type="PackedScene" uid="uid://c7jvv0gxlclma" path="res://Scenes/UI/Main Menu.tscn" id="6_uyn1v"]
@@ -14,16 +15,17 @@ playerScene = ExtResource("2_3evnq")
 mainMenu = NodePath("CanvasLayer/Main Menu")
 hud = NodePath("CanvasLayer/HUD")
 
+[node name="Scene" parent="." unique_id=1037443194 instance=ExtResource("3_tpd2j")]
+
 [node name="Enemy Spawner" type="Node3D" parent="." unique_id=1115749417]
 script = ExtResource("3_6ttaq")
 enemyScenes = Array[PackedScene]([ExtResource("4_yvurs"), ExtResource("5_uyn1v")])
 spawnTime = 3.3
-spawnPosition = Vector3(0, 10, 0)
 maxEnemies = 50
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1124059323]
 
-[node name="Main Menu" parent="CanvasLayer" unique_id=147921874 instance=ExtResource("6_uyn1v")]
+[node name="HUD" parent="CanvasLayer" unique_id=191590163 instance=ExtResource("6_yvurs")]
 visible = false
 
-[node name="HUD" parent="CanvasLayer" unique_id=191590163 instance=ExtResource("6_yvurs")]
+[node name="Main Menu" parent="CanvasLayer" unique_id=147921874 instance=ExtResource("6_uyn1v")]

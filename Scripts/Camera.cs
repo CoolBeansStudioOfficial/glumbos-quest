@@ -33,6 +33,8 @@ public partial class Camera : Node3D
     {
         if (@event is InputEventMouseMotion mouseEvent && isControlledByMouse)
         {
+            if (GameManager.Singleton.paused) return;
+
             camera.RotationDegrees = GetRotationFromInput(lastRotation, mouseEvent.Relative, sensitivity);
             lastRotation = camera.RotationDegrees;
         }

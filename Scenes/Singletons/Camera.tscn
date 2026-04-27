@@ -2,14 +2,15 @@
 
 [ext_resource type="Script" uid="uid://biexaoshtxha8" path="res://Scripts/Camera.cs" id="1_e6e23"]
 
+[sub_resource type="Compositor" id="Compositor_ihbcr"]
+compositor_effects = Array[CompositorEffect]([null])
+
 [node name="Camera" type="Node3D" unique_id=742328748 node_paths=PackedStringArray("camera", "raycast")]
 script = ExtResource("1_e6e23")
 camera = NodePath("Camera3D")
 sensitivity = Vector2(0.5, 0.4)
-raycast = NodePath("Camera3D/RayCast3D")
+raycast = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=45483792]
+compositor = SubResource("Compositor_ihbcr")
 fov = 90.0
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=730074808]
-target_position = Vector3(0, 0, -100)

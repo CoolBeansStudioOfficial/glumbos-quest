@@ -21,6 +21,8 @@ public partial class HomingEnemy : Enemy
 
     public override void _Process(double delta)
     {
+        if (GameManager.Singleton.paused) return;
+
         if (charging)
         {
             Vector3 velocity  = (targetPosition - Position) * speed * (float)delta;

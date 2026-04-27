@@ -4,6 +4,8 @@ using System;
 public partial class HUD : Control
 {
 	[Export] Panel[] hearts;
+	[Export] ProgressBar dashBar;
+
 	public override void _Ready()
 	{
 	}
@@ -16,5 +18,10 @@ public partial class HUD : Control
 		{
 			hearts[i].Visible = true;
 		}
+	}
+
+	public void SetDash(float percent)
+	{
+		dashBar.Value = percent;
 	}
 }

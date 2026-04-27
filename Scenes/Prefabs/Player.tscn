@@ -7,9 +7,11 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2uwcf"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1985862885 node_paths=PackedStringArray("head")]
+floor_constant_speed = true
 script = ExtResource("1_xhfnw")
 head = NodePath("Head")
 SpeedCap = 8.0
+DashCap = 16.0
 Acceleration = 100.0
 Deceleration = 0.1
 JumpVelocity = 7.5

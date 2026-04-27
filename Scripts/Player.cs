@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class Player : CharacterBody3D
 {
@@ -15,6 +16,7 @@ public partial class Player : CharacterBody3D
 	float maxSpeed;
 	float dashRemaining = 5f;
 	bool canDash = true;
+	bool dashCooldown = false;
 
     public override void _Ready()
     {
@@ -24,6 +26,8 @@ public partial class Player : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
+		if (GameManager.Singleton.paused) return;
+
 		if (Input.IsActionPressed("dash") && canDash)
 		{
             canDash = false;
@@ -86,12 +90,30 @@ public partial class Player : CharacterBody3D
 
 		hitCooldown -= (float)delta;
 
-		dashRemaining -= (float)delta;
+		
 		if (dashRemaining <= 0)
 		{
-            canDash = true;
-			maxSpeed = SpeedCap;
+			dashCooldown = true;
+            maxSpeed = SpeedCap;
         }
+		else
+		{
+			if (maxSpeed != SpeedCap) GameManager.Singleton.hud.SetDash((dashRemaining / 5) * 100);
+			else GameManager.Singleton.hud.SetDash(100);
+        }
+
+		if (dashCooldown)
+		{
+			dashRemaining += (float)delta;
+			GameManager.Singleton.hud.SetDash((dashRemaining / 15) * 100);
+
+			if (dashRemaining >= 15)
+			{
+                canDash = true;
+				dashCooldown = false;
+            }
+		}
+		else if (!canDash) dashRemaining -= (float)delta;
 	}
 
 	public int hearts = 3;

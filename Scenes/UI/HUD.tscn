@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cguunogc6jhs4" path="res://Scenes/UI/Elements/Heart.tscn" id="1_omqfp"]
 [ext_resource type="Script" uid="uid://p450lka2efnc" path="res://Scripts/HUD.cs" id="1_qc5w2"]
 
-[node name="HUD" type="Control" unique_id=191590163 node_paths=PackedStringArray("hearts")]
+[node name="HUD" type="Control" unique_id=191590163 node_paths=PackedStringArray("hearts", "dashBar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qc5w2")
 hearts = [NodePath("HBoxContainer2/Heart"), NodePath("HBoxContainer2/Heart2"), NodePath("HBoxContainer2/Heart3")]
+dashBar = NodePath("HBoxContainer/Dash Bar")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=698121293]
 custom_minimum_size = Vector2(100, 50)
@@ -24,14 +25,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer" unique_id=888234591]
+[node name="Dash Bar" type="ProgressBar" parent="HBoxContainer" unique_id=888234591]
 custom_minimum_size = Vector2(148.62, 0)
 layout_mode = 2
 size_flags_vertical = 1
 value = 100.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="HBoxContainer/ProgressBar" unique_id=826688775]
+[node name="Label" type="Label" parent="HBoxContainer/Dash Bar" unique_id=826688775]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = 15

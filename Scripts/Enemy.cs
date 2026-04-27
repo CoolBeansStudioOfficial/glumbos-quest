@@ -7,7 +7,9 @@ public partial class Enemy : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
-		Vector3 velocity = Velocity;
+        if (GameManager.Singleton.paused) return;
+
+        Vector3 velocity = Velocity;
 		Vector3 toPlayer = (GameManager.Singleton.player.Position - Position) * speed * (float)delta;
 		velocity.X = toPlayer.X;
 		velocity.Z = toPlayer.Z;
