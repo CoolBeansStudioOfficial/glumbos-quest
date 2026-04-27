@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_ugnox")
 
 [node name="Enemy" type="CharacterBody3D" unique_id=321441980]
 script = ExtResource("1_tt7e2")
-speed = 600.0
+speed = 100.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625218609]
 shape = SubResource("SphereShape3D_ugnox")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cguunogc6jhs4"]
+
+[ext_resource type="Texture2D" uid="uid://bmyiuwpvga0d" path="res://Images/Heart.png" id="1_qcnf0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qc5w2"]
+texture = ExtResource("1_qcnf0")
+
+[node name="Heart" type="Panel" unique_id=912188893]
+custom_minimum_size = Vector2(50, 50)
+theme_override_styles/panel = SubResource("StyleBoxTexture_qc5w2")

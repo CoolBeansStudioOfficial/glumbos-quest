@@ -12,12 +12,12 @@ material = SubResource("StandardMaterial3D_0l4qa")
 
 [node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
 script = ExtResource("1_0l4qa")
-speed = 800.0
+speed = 700.0
 deceleration = 10.0
 fallMultiplier = 1.0
 waitSeconds = 3.0
 chargeSeconds = 0.3
-speed = 800.0
+speed = 700.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=542976626]
 shape = SubResource("BoxShape3D_0l4qa")

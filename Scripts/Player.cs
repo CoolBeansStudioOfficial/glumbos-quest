@@ -6,18 +6,31 @@ public partial class Player : CharacterBody3D
 	[Export] Node3D head;
 
     [Export] public float SpeedCap = 5.0f;
-	[Export] public float Acceleration = 5.0f;
+    [Export] public float DashCap = 5.0f;
+    [Export] public float Acceleration = 5.0f;
     [Export] public float Deceleration = 5.0f;
     [Export] public float JumpVelocity = 4.5f;
     [Export] public float AirControl = 0.3f;
 
+	float maxSpeed;
+	float dashRemaining = 5f;
+	bool canDash = true;
+
     public override void _Ready()
     {
         Camera.Singleton.followTarget = head;
+		maxSpeed = SpeedCap;
     }
 
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionPressed("dash") && canDash)
+		{
+            canDash = false;
+            dashRemaining = 5f;
+            maxSpeed = DashCap;
+        }
+
         //find forward and right vectors for current rotation
         Quaternion calcRotation = Quaternion.FromEuler(new Vector3(0, Mathf.DegToRad(Camera.Singleton.camera.RotationDegrees.Y), 0));
         Vector3 forward = calcRotation * Vector3.Back;
@@ -45,7 +58,7 @@ public partial class Player : CharacterBody3D
         if (input != Vector2.Zero)
 		{
 			//get move direction relative to what direction camera is facing
-			Vector3 rotated = (forward * SpeedCap * input.Y) + (right * SpeedCap * input.X);
+			Vector3 rotated = (forward * maxSpeed * input.Y) + (right * maxSpeed * input.X);
 
 			if (IsOnFloor())
 			{
@@ -59,8 +72,8 @@ public partial class Player : CharacterBody3D
             }
 			
 			//hard speed cap
-			velocity.X = Mathf.Clamp(velocity.X, -SpeedCap, SpeedCap);
-            velocity.Z = Mathf.Clamp(velocity.Z, -SpeedCap, SpeedCap);
+			velocity.X = Mathf.Clamp(velocity.X, -maxSpeed, maxSpeed);
+            velocity.Z = Mathf.Clamp(velocity.Z, -maxSpeed, maxSpeed);
         }
 		else
 		{
@@ -70,10 +83,30 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+
+		hitCooldown -= (float)delta;
+
+		dashRemaining -= (float)delta;
+		if (dashRemaining <= 0)
+		{
+            canDash = true;
+			maxSpeed = SpeedCap;
+        }
 	}
+
+	public int hearts = 3;
+	float hitCooldown = 0;
 
 	public void Hit()
 	{
-		Velocity = new(Velocity.X, JumpVelocity * 3, Velocity.Z);
+		if (hitCooldown <= 0)
+		{
+			hearts--;
+			GameManager.Singleton.hud.SetHearts(hearts);
+            Velocity = new(Velocity.X, JumpVelocity * 3, Velocity.Z);
+            hitCooldown = 5;
+
+			if (hearts == 0) GameManager.Singleton.EndGame();
+		}
 	}
 }

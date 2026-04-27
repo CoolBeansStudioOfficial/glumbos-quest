@@ -7,6 +7,9 @@ public partial class GameManager : Node
 
 	[Export] PackedScene playerScene;
 
+    [Export] public Control mainMenu;
+    [Export] public HUD hud;
+
 	public Player player;
 
 	public bool paused = false;
@@ -18,7 +21,7 @@ public partial class GameManager : Node
         Input.MouseMode = Input.MouseModeEnum.Captured;
 
         player = playerScene.Instantiate() as Player;
-		player.Position = new(3,2,3);
+		player.Position = new(GD.RandRange(-50, 50), 2, GD.RandRange(-50, 50));
 		AddChild(player);
 	}
 
@@ -37,5 +40,11 @@ public partial class GameManager : Node
                 Input.MouseMode = Input.MouseModeEnum.Captured;
             }
         }
+	}
+
+	public void EndGame()
+	{
+		hud.Visible = false;
+		mainMenu.Visible = true;
 	}
 }
