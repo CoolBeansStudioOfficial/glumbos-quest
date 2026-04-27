@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://mo23ot4iv5oi" path="res://Images/TileX.png" id="3_ke1vn"]
 [ext_resource type="Texture2D" uid="uid://b13l8leoatiwt" path="res://Images/Tile.png" id="3_ww3rf"]
 [ext_resource type="Texture2D" uid="uid://ckquadnjuunt0" path="res://Images/Tile Circle.png" id="4_v87v2"]
-[ext_resource type="PackedScene" uid="uid://dhrx4taeejhkt" path="res://Scenes/Prefabs/Coin.tscn" id="5_pilj3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h7pfk"]
 
@@ -195,6 +194,3 @@ mesh = SubResource("BoxMesh_14f5m")
 [node name="Cube10" parent="Stage" unique_id=615865364 instance=ExtResource("2_nxxrv")]
 transform = Transform3D(2.812899, -2.812901, 14.462891, 10.606602, 10.606602, 1.4455521e-06, -10.226808, 10.226808, 3.9780414, 13.091237, -3.4604583, -30.496254)
 mesh = SubResource("BoxMesh_1i8vm")
-
-[node name="Coin" parent="Stage" unique_id=1069115014 instance=ExtResource("5_pilj3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.994024, 4.308057, -1.509881)

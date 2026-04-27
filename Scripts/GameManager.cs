@@ -1,16 +1,23 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class GameManager : Node
 {
 	public static GameManager Singleton { get; private set; }
 
     [Export] PackedScene playerScene;
+    [Export] EnemySpawner spawner;
 
     [Export] public MainMenu mainMenu;
+    [Export] public PauseMenu pauseMenu;
     [Export] public HUD hud;
 
+    [Export] Node3D menuPoint;
+    [Export] Coin coin;
+
 	public Player player;
+	int coins = -1;
 
 	public bool inMenu = true;
 	public bool paused = true;
@@ -19,7 +26,10 @@ public partial class GameManager : Node
 	{
 		Singleton = this;
 
-		mainMenu.playButton.Pressed += StartGame;
+        Camera.Singleton.followTarget = menuPoint;
+        Camera.Singleton.isControlledByMouse = false;
+
+        mainMenu.playButton.Pressed += StartGame;
 	}
 
 	public override void _Process(double delta)
@@ -30,16 +40,25 @@ public partial class GameManager : Node
 
 			paused = !paused;
 
-            if (paused)
-            {
-                Input.MouseMode = Input.MouseModeEnum.Visible;
-            }
-            else
-            {
-                Input.MouseMode = Input.MouseModeEnum.Captured;
-            }
+            SetPause(paused);
         }
 	}
+
+	public void SetPause(bool pause)
+	{
+        paused = pause;
+		pauseMenu.Visible = paused;
+		hud.Visible = !paused;
+
+        if (paused)
+        {
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+        }
+        else
+        {
+            Input.MouseMode = Input.MouseModeEnum.Captured;
+        }
+    }
 
 	public void StartGame()
 	{
@@ -49,10 +68,19 @@ public partial class GameManager : Node
 			player = null;
 		}
         player = playerScene.Instantiate() as Player;
-        player.Position = new(GD.RandRange(-50, 50), 2, GD.RandRange(-50, 50));
+        player.Position = new(0, 2, 0);
+		player.FollowPlayer();
+        Camera.Singleton.isControlledByMouse = true;
         AddChild(player);
 
+		coins = -1;
+		CollectCoin(false);
+
+		spawner.Reset();
+
         hud.Visible = true;
+		hud.SetHearts(3);
+		hud.SetCoins(0);
         mainMenu.Visible = false;
 		mainMenu.Visible = false;
 		paused = false;
@@ -67,5 +95,16 @@ public partial class GameManager : Node
 		inMenu = true;
 
         Input.MouseMode = Input.MouseModeEnum.Visible;
+		Camera.Singleton.followTarget = menuPoint;
+		Camera.Singleton.isControlledByMouse = false;
+    }
+
+	public async Task CollectCoin(bool respawnDelay = true)
+	{
+        coins++;
+        hud.SetCoins(coins);
+        if (respawnDelay) await Task.Delay(3000);
+        coin.Position = new(GD.RandRange(-20, 20), 0.5f, GD.RandRange(-20, 20));
+        coin.Visible = true;
     }
 }

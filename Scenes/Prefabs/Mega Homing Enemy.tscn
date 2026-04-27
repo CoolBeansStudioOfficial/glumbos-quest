@@ -1,23 +1,24 @@
-[gd_scene format=3 uid="uid://car5f87armnav"]
+[gd_scene format=3 uid="uid://oefgfcpuoewo"]
 
-[ext_resource type="Script" uid="uid://dym5kujh7jdkd" path="res://Scripts/HomingEnemy.cs" id="1_0l4qa"]
-[ext_resource type="Texture2D" uid="uid://hhi38oegh5at" path="res://Images/Triangle Enemy.png" id="2_rm3ys"]
+[ext_resource type="Script" uid="uid://dym5kujh7jdkd" path="res://Scripts/HomingEnemy.cs" id="1_lunfu"]
+[ext_resource type="Texture2D" uid="uid://hhi38oegh5at" path="res://Images/Triangle Enemy.png" id="2_ef2xg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0l4qa"]
-size = Vector3(0.5, 1, 0.5)
+size = Vector3(2.5, 5, 2.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn4wr"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_rm3ys")
+albedo_texture = ExtResource("2_ef2xg")
 texture_filter = 0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_e80hq"]
 material = SubResource("StandardMaterial3D_gn4wr")
+size = Vector2(5, 5)
 
-[node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
-script = ExtResource("1_0l4qa")
+[node name="Mega Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
+script = ExtResource("1_lunfu")
 chargeSpeed = 35.0
 deceleration = 10.0
 fallMultiplier = 1.0

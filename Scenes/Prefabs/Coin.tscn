@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bxtjxtrm7lmv2" path="res://Audio/Coin.wav" id="3_sx5sc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jaf1v"]
+radius = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kdf3m"]
 transparency = 1

@@ -18,10 +18,14 @@ public partial class Player : CharacterBody3D
 	bool canDash = true;
 	bool dashCooldown = false;
 
+	public void FollowPlayer()
+	{
+        Camera.Singleton.followTarget = head;
+    }
+
     public override void _Ready()
     {
-        Camera.Singleton.followTarget = head;
-		maxSpeed = SpeedCap;
+        maxSpeed = SpeedCap;
     }
 
 	public override void _Process(double delta)

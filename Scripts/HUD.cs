@@ -5,8 +5,10 @@ public partial class HUD : Control
 {
 	[Export] Panel[] hearts;
 	[Export] ProgressBar dashBar;
+    [Export] ProgressBar pushBar;
+    [Export] Label coinsLabel;
 
-	public override void _Ready()
+    public override void _Ready()
 	{
 	}
 
@@ -26,4 +28,14 @@ public partial class HUD : Control
 	{
 		dashBar.Value = percent;
 	}
+
+    public void SetPush(float percent)
+    {
+        pushBar.Value = percent;
+    }
+
+    public void SetCoins(int coins)
+    {
+		coinsLabel.Text = $"Coins: {coins}/10";
+    }
 }

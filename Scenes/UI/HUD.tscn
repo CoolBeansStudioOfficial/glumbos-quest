@@ -19,23 +19,7 @@ content_margin_bottom = 2.0
 bg_color = Color(0.49019608, 1, 1, 0.4)
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bm6u"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_detail = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykvyr"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(1, 1, 0.43137255, 0.4)
-corner_detail = 6
-
-[node name="HUD" type="Control" unique_id=191590163 node_paths=PackedStringArray("hearts", "dashBar")]
+[node name="HUD" type="Control" unique_id=191590163 node_paths=PackedStringArray("hearts", "dashBar", "pushBar", "coinsLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +29,8 @@ grow_vertical = 2
 script = ExtResource("1_qc5w2")
 hearts = [NodePath("HBoxContainer2/Heart"), NodePath("HBoxContainer2/Heart2"), NodePath("HBoxContainer2/Heart3")]
 dashBar = NodePath("HBoxContainer/Dash Bar")
+pushBar = NodePath("")
+coinsLabel = NodePath("HBoxContainer3/Coins")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=698121293]
 custom_minimum_size = Vector2(100, 50)
@@ -60,6 +46,7 @@ offset_right = 150.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
 
 [node name="Dash Bar" type="ProgressBar" parent="HBoxContainer" unique_id=888234591]
 custom_minimum_size = Vector2(148.62, 0)
@@ -83,28 +70,6 @@ text = "Dash (Shift)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar2" type="ProgressBar" parent="HBoxContainer" unique_id=1773284069]
-custom_minimum_size = Vector2(148.62, 0)
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxFlat_4bm6u")
-theme_override_styles/fill = SubResource("StyleBoxFlat_ykvyr")
-value = 100.0
-show_percentage = false
-
-[node name="Label" type="Label" parent="HBoxContainer/ProgressBar2" unique_id=943030780]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 24
-text = "Push (Click)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=740261102]
 layout_mode = 1
 anchors_preset = 5
@@ -125,3 +90,20 @@ layout_mode = 2
 
 [node name="Heart3" parent="HBoxContainer2" unique_id=708851161 instance=ExtResource("1_omqfp")]
 layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=1731770218]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -79.0
+offset_top = 50.0
+offset_right = 79.0
+offset_bottom = 100.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Coins" type="Label" parent="HBoxContainer3" unique_id=334871282]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Coins: 0/10"

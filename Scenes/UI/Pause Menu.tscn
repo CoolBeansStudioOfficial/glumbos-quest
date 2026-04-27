@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://c7jvv0gxlclma"]
+[gd_scene format=3 uid="uid://chj0lgu4cwbts"]
 
-[ext_resource type="Script" uid="uid://cl2s0evutx2w1" path="res://Scripts/MainMenu.cs" id="1_au62v"]
+[ext_resource type="Script" uid="uid://dshb776casf07" path="res://Scripts/PauseMenu.cs" id="1_5yjr0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au62v"]
 content_margin_left = 4.0
@@ -50,16 +50,25 @@ content_margin_bottom = 4.0
 bg_color = Color(0.225, 0.225, 0.225, 0.6)
 corner_detail = 5
 
-[node name="Main Menu" type="Control" unique_id=147921874 node_paths=PackedStringArray("playButton", "settingsButton")]
+[node name="Pause Menu" type="Control" unique_id=147921874 node_paths=PackedStringArray("continueButton", "quitButton", "settingsButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_au62v")
-playButton = NodePath("VBoxContainer/Play")
+script = ExtResource("1_5yjr0")
+continueButton = NodePath("VBoxContainer/Continue")
+quitButton = NodePath("VBoxContainer/Quit")
 settingsButton = NodePath("VBoxContainer/Settings")
+
+[node name="Panel" type="Panel" parent="." unique_id=604851333]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="." unique_id=744194212]
 layout_mode = 1
@@ -72,7 +81,7 @@ offset_right = 83.0
 offset_bottom = 65.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "Glumbo's Quest"
+text = "Paused"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=507404914]
@@ -90,14 +99,23 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=554973180]
+[node name="Continue" type="Button" parent="VBoxContainer" unique_id=554973180]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_au62v")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_f3c0k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1dce6")
-text = "Play"
+text = "Continue"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1258826850]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_au62v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f3c0k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1dce6")
+text = "Quit"
 
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=1676498782]
 custom_minimum_size = Vector2(0, 50)

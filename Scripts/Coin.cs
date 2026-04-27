@@ -17,6 +17,7 @@ public partial class Coin : Area3D
         {
             audio.Play();
             Visible = false;
+            GameManager.Singleton.CollectCoin();
         }
     }
 }

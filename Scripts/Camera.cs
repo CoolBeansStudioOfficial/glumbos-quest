@@ -26,6 +26,7 @@ public partial class Camera : Node3D
         if (followTarget != null)
         {
             camera.Position = followTarget.GlobalPosition;
+            if (!isControlledByMouse) camera.Rotation = followTarget.GlobalRotation;
         }
     }
 
@@ -55,7 +56,7 @@ public partial class Camera : Node3D
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         //return the calculated rotation
-        return new(xRotation, desiredX, startRotation.Z);
+        return new(xRotation, desiredX, 0);
     }
 
     //RIP Mythic Legion, but thanks for the code

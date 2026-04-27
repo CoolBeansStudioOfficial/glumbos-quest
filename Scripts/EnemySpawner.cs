@@ -14,6 +14,7 @@ public partial class EnemySpawner : Node3D
 
 	public void Reset()
 	{
+		if (enemies.Count == 0) return;
 		foreach (Enemy enemy in enemies) enemy.QueueFree();
 		enemies.Clear();
 	}
