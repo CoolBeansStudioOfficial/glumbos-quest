@@ -15,8 +15,10 @@ public partial class GameManager : Node
 
     [Export] Node3D menuPoint;
     [Export] Coin coin;
+	[Export] Area3D exit;
+    [Export] CollisionShape3D exitShape;
 
-	public Player player;
+    public Player player;
 	int coins = -1;
 
 	public bool inMenu = true;
@@ -103,6 +105,13 @@ public partial class GameManager : Node
 	{
         coins++;
         hud.SetCoins(coins);
+
+		if (coins == 10)
+		{
+			exit.Visible = true;
+			exitShape.Disabled = false;
+		}
+
         if (respawnDelay) await Task.Delay(3000);
         coin.Position = new(GD.RandRange(-20, 20), 0.5f, GD.RandRange(-20, 20));
         coin.Visible = true;

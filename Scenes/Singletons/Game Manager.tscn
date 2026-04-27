@@ -13,8 +13,21 @@
 [ext_resource type="Script" uid="uid://disgas3s0dxk0" path="res://Scripts/Spin.cs" id="10_fpsrd"]
 [ext_resource type="PackedScene" uid="uid://bjhfqaq47py4v" path="res://Scenes/Prefabs/Mega Enemy.tscn" id="10_o7j3t"]
 [ext_resource type="PackedScene" uid="uid://oefgfcpuoewo" path="res://Scenes/Prefabs/Mega Homing Enemy.tscn" id="11_r34ae"]
+[ext_resource type="FontFile" uid="uid://b2yd3pxi3283a" path="res://Jersey10-Regular.ttf" id="14_r34ae"]
 
-[node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "hud", "menuPoint", "coin")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqomo"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_156p1"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 0.3019608)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ajssi"]
+material = SubResource("StandardMaterial3D_156p1")
+size = Vector3(3, 3, 3)
+
+[node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "hud", "menuPoint", "coin", "exit", "exitShape")]
 script = ExtResource("1_d2o0d")
 playerScene = ExtResource("2_3evnq")
 spawner = NodePath("Enemy Spawner")
@@ -23,6 +36,8 @@ pauseMenu = NodePath("CanvasLayer/Pause Menu")
 hud = NodePath("CanvasLayer/HUD")
 menuPoint = NodePath("Pivot/Menu Camera")
 coin = NodePath("Coin")
+exit = NodePath("Exit Pivot/Exit")
+exitShape = NodePath("Exit Pivot/Exit/CollisionShape3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1124059323]
 
@@ -53,3 +68,32 @@ speed = 1.0
 
 [node name="Menu Camera" type="Node3D" parent="Pivot" unique_id=405499905]
 transform = Transform3D(1, 0, 0, 0, 0.9304176, 0.3665012, 0, -0.3665012, 0.9304176, 0, 17.355, 0)
+
+[node name="Exit Pivot" type="Node3D" parent="." unique_id=301881936]
+script = ExtResource("10_fpsrd")
+speed = 40.0
+obeyPause = true
+
+[node name="Exit" type="Area3D" parent="Exit Pivot" unique_id=442040538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 2, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit Pivot/Exit" unique_id=1105869641]
+shape = SubResource("BoxShape3D_vqomo")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Exit Pivot/Exit" unique_id=975590682]
+mesh = SubResource("BoxMesh_ajssi")
+
+[node name="Label3D" type="Label3D" parent="Exit Pivot/Exit" unique_id=1401697001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0030007362, 0)
+billboard = 1
+no_depth_test = true
+fixed_size = true
+texture_filter = 0
+render_priority = 2
+outline_render_priority = 1
+text = "Exit"
+font = ExtResource("14_r34ae")
+font_size = 25
+uppercase = true

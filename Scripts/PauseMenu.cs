@@ -10,10 +10,19 @@ public partial class PauseMenu : Control
     public override void _Ready()
 	{
         continueButton.Pressed += ContinueButton_Pressed;
+        quitButton.Pressed += QuitButton_Pressed;
 	}
 
     void ContinueButton_Pressed()
     {
         GameManager.Singleton.SetPause(false);
     }
+
+    void QuitButton_Pressed()
+    {
+        GameManager.Singleton.SetPause(false);
+        GameManager.Singleton.EndGame();
+    }
+
+    
 }
