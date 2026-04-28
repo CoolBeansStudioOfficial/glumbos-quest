@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chj0lgu4cwbts" path="res://Scenes/UI/Pause Menu.tscn" id="5_gtgne"]
 [ext_resource type="PackedScene" uid="uid://car5f87armnav" path="res://Scenes/Prefabs/Homing Enemy.tscn" id="5_uyn1v"]
 [ext_resource type="PackedScene" uid="uid://c7jvv0gxlclma" path="res://Scenes/UI/Main Menu.tscn" id="6_uyn1v"]
+[ext_resource type="PackedScene" uid="uid://dm7pispi26y5r" path="res://Scenes/UI/End Menu.tscn" id="6_vqomo"]
 [ext_resource type="PackedScene" uid="uid://kbfl7mmnw5dr" path="res://Scenes/UI/HUD.tscn" id="6_yvurs"]
 [ext_resource type="PackedScene" uid="uid://dhrx4taeejhkt" path="res://Scenes/Prefabs/Coin.tscn" id="9_0h5bj"]
 [ext_resource type="Script" uid="uid://disgas3s0dxk0" path="res://Scripts/Spin.cs" id="10_fpsrd"]
@@ -27,12 +28,13 @@ albedo_color = Color(0, 1, 1, 0.3019608)
 material = SubResource("StandardMaterial3D_156p1")
 size = Vector3(3, 3, 3)
 
-[node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "hud", "menuPoint", "coin", "exit", "exitShape")]
+[node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "endMenu", "hud", "menuPoint", "coin", "exit", "exitShape")]
 script = ExtResource("1_d2o0d")
 playerScene = ExtResource("2_3evnq")
 spawner = NodePath("Enemy Spawner")
 mainMenu = NodePath("CanvasLayer/Main Menu")
 pauseMenu = NodePath("CanvasLayer/Pause Menu")
+endMenu = NodePath("CanvasLayer/End Menu")
 hud = NodePath("CanvasLayer/HUD")
 menuPoint = NodePath("Pivot/Menu Camera")
 coin = NodePath("Coin")
@@ -48,6 +50,9 @@ visible = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Pause Menu" parent="CanvasLayer" unique_id=1642944287 instance=ExtResource("5_gtgne")]
+visible = false
+
+[node name="End Menu" parent="CanvasLayer" unique_id=841314270 instance=ExtResource("6_vqomo")]
 visible = false
 
 [node name="Scene" parent="." unique_id=1037443194 instance=ExtResource("3_tpd2j")]
@@ -97,3 +102,5 @@ text = "Exit"
 font = ExtResource("14_r34ae")
 font_size = 25
 uppercase = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1610411057]

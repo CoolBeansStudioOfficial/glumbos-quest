@@ -21,7 +21,7 @@ public partial class PauseMenu : Control
     void QuitButton_Pressed()
     {
         GameManager.Singleton.SetPause(false);
-        GameManager.Singleton.EndGame();
+        GameManager.Singleton.QuitGame();
     }
 
     

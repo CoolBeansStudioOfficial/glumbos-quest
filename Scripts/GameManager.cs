@@ -11,6 +11,7 @@ public partial class GameManager : Node
 
     [Export] public MainMenu mainMenu;
     [Export] public PauseMenu pauseMenu;
+    [Export] public EndMenu endMenu;
     [Export] public HUD hud;
 
     [Export] Node3D menuPoint;
@@ -32,9 +33,18 @@ public partial class GameManager : Node
         Camera.Singleton.isControlledByMouse = false;
 
         mainMenu.playButton.Pressed += StartGame;
+        exit.BodyEntered += ExitTouched;
 	}
 
-	public override void _Process(double delta)
+    private void ExitTouched(Node3D body)
+    {
+        if (body is Player player)
+		{
+            EndGame(true);
+        }
+    }
+
+    public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("pause"))
 		{
@@ -84,23 +94,48 @@ public partial class GameManager : Node
 		hud.SetHearts(3);
 		hud.SetCoins(0);
         mainMenu.Visible = false;
-		mainMenu.Visible = false;
+		endMenu.Visible = false;
 		paused = false;
 		inMenu = false;
         Input.MouseMode = Input.MouseModeEnum.Captured;
+
+        exit.Visible = false;
+        exitShape.Disabled = true;
     }
 
-	public void EndGame()
+	public void QuitGame()
 	{
 		hud.Visible = false;
+		endMenu.Visible = false;
 		mainMenu.Visible = true;
 		inMenu = true;
+
+        spawner.Reset();
 
         Input.MouseMode = Input.MouseModeEnum.Visible;
 		Camera.Singleton.followTarget = menuPoint;
 		Camera.Singleton.isControlledByMouse = false;
-		player.QueueFree();
+		if (player is not null) player.QueueFree();
 		player = null;
+    }
+
+	public void EndGame(bool win = false)
+	{
+        hud.Visible = false;
+        inMenu = true;
+        endMenu.SetWin(win, coins);
+        endMenu.Visible = true;
+
+        spawner.Reset();
+
+        Input.MouseMode = Input.MouseModeEnum.Visible;
+        Camera.Singleton.followTarget = menuPoint;
+        Camera.Singleton.isControlledByMouse = false;
+        if (player is not null) player.QueueFree();
+        player = null;
+
+        exit.Visible = false;
+        exitShape.Disabled = true;
     }
 
 	public async Task CollectCoin(bool respawnDelay = true)
