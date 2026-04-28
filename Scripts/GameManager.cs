@@ -99,6 +99,8 @@ public partial class GameManager : Node
         Input.MouseMode = Input.MouseModeEnum.Visible;
 		Camera.Singleton.followTarget = menuPoint;
 		Camera.Singleton.isControlledByMouse = false;
+		player.QueueFree();
+		player = null;
     }
 
 	public async Task CollectCoin(bool respawnDelay = true)

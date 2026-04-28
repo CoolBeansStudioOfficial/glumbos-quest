@@ -7,7 +7,7 @@ public partial class Enemy : CharacterBody3D
 
 	public override void _Process(double delta)
 	{
-        if (GameManager.Singleton.paused) return;
+        if (GameManager.Singleton.paused || GameManager.Singleton.player is null) return;
 
         Vector3 velocity = Velocity;
         Vector3 direction = (GameManager.Singleton.player.Position - Position) / Position.DistanceTo(GameManager.Singleton.player.Position);

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bynrgdbv2plcb"]
 
 [ext_resource type="Script" uid="uid://7eme30kl5hbx" path="res://Scripts/Player.cs" id="1_xhfnw"]
+[ext_resource type="AudioStream" uid="uid://di55lpd7spsga" path="res://Audio/Jump.wav" id="2_2ortc"]
+[ext_resource type="AudioStream" uid="uid://bnawo6e5c1x4" path="res://Audio/Hit.wav" id="4_2ortc"]
+[ext_resource type="AudioStream" uid="uid://dkwdkeegydx45" path="res://Audio/Dash.wav" id="4_8wf5m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxxrv"]
 
@@ -13,6 +16,9 @@ DashCap = 16.0
 Acceleration = 100.0
 Deceleration = 0.1
 JumpVelocity = 7.5
+jumpSound = ExtResource("2_2ortc")
+dashSound = ExtResource("4_8wf5m")
+hitSound = ExtResource("4_2ortc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2021142537]
 shape = SubResource("CapsuleShape3D_nxxrv")

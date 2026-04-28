@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Camera="uid://qwcnsxihaccm"
 GameManager="uid://c8kkq3orkbm5w"
+AudioManager="uid://chxl1gagw5brk"
 
 [display]
 

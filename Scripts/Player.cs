@@ -13,7 +13,12 @@ public partial class Player : CharacterBody3D
     [Export] public float JumpVelocity = 4.5f;
     [Export] public float AirControl = 0.3f;
 
-	float maxSpeed;
+	[ExportGroup("Audio")]
+	[Export] AudioStream jumpSound;
+    [Export] AudioStream dashSound;
+    [Export] AudioStream hitSound;
+
+    float maxSpeed;
 	float dashRemaining = 5f;
 	bool canDash = true;
 	bool dashCooldown = false;
@@ -37,6 +42,7 @@ public partial class Player : CharacterBody3D
             canDash = false;
             dashRemaining = 5f;
             maxSpeed = DashCap;
+			AudioManager.Singleton.PlayStream(dashSound);
         }
 
         //find forward and right vectors for current rotation
@@ -57,6 +63,7 @@ public partial class Player : CharacterBody3D
 		if (Input.IsActionJustPressed("jump") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
+			AudioManager.Singleton.PlayStream(jumpSound);
 		}
 
 		// Get the input direction and handle the movement/deceleration.
@@ -131,6 +138,7 @@ public partial class Player : CharacterBody3D
 			GameManager.Singleton.hud.SetHearts(hearts);
             Velocity = new(Velocity.X, JumpVelocity * 2, Velocity.Z);
             hitCooldown = 5;
+			AudioManager.Singleton.PlayStream(hitSound);
 
 			if (hearts == 0) GameManager.Singleton.EndGame();
 		}

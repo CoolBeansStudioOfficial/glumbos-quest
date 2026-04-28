@@ -17,7 +17,7 @@ public partial class HomingEnemy : Enemy
 
     public override void _Process(double delta)
     {
-        if (GameManager.Singleton.paused) return;
+        if (GameManager.Singleton.paused || GameManager.Singleton.player is null) return;
 
         if (secondsLeft > 0)
         {
