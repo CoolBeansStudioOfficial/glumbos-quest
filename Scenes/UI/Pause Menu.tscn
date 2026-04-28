@@ -26,30 +26,6 @@ content_margin_bottom = 4.0
 bg_color = Color(0.225, 0.225, 0.225, 0.6)
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko0jy"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.6)
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2yn0"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kyo8"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_detail = 5
-
 [node name="Pause Menu" type="Control" unique_id=147921874 node_paths=PackedStringArray("continueButton", "quitButton", "settingsButton")]
 layout_mode = 3
 anchors_preset = 15
@@ -60,7 +36,7 @@ grow_vertical = 2
 script = ExtResource("1_5yjr0")
 continueButton = NodePath("VBoxContainer/Continue")
 quitButton = NodePath("VBoxContainer/Quit")
-settingsButton = NodePath("VBoxContainer/Settings")
+settingsButton = NodePath("")
 
 [node name="Panel" type="Panel" parent="." unique_id=604851333]
 layout_mode = 1
@@ -116,12 +92,3 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_au62v")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_f3c0k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1dce6")
 text = "Quit"
-
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1676498782]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_ko0jy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o2yn0")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0kyo8")
-text = "Settings"

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ci0n2qntynnob" path="res://Scripts/GameManager.cs" id="1_d2o0d"]
 [ext_resource type="PackedScene" uid="uid://bynrgdbv2plcb" path="res://Scenes/Prefabs/Player.tscn" id="2_3evnq"]
 [ext_resource type="Script" uid="uid://clh05muj2wsjm" path="res://Scripts/EnemySpawner.cs" id="3_6ttaq"]
+[ext_resource type="AudioStream" uid="uid://bapvv67tb2i3x" path="res://Audio/Victory.wav" id="3_ajssi"]
 [ext_resource type="PackedScene" uid="uid://c0gntryofpfrw" path="res://Scenes/Main Scene.tscn" id="3_tpd2j"]
 [ext_resource type="PackedScene" uid="uid://vw8g7u31uxc3" path="res://Scenes/Prefabs/Enemy.tscn" id="4_yvurs"]
 [ext_resource type="PackedScene" uid="uid://chj0lgu4cwbts" path="res://Scenes/UI/Pause Menu.tscn" id="5_gtgne"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c7jvv0gxlclma" path="res://Scenes/UI/Main Menu.tscn" id="6_uyn1v"]
 [ext_resource type="PackedScene" uid="uid://dm7pispi26y5r" path="res://Scenes/UI/End Menu.tscn" id="6_vqomo"]
 [ext_resource type="PackedScene" uid="uid://kbfl7mmnw5dr" path="res://Scenes/UI/HUD.tscn" id="6_yvurs"]
+[ext_resource type="PackedScene" uid="uid://hbh7kruf13f6" path="res://Scenes/UI/Settings Panel.tscn" id="8_wwhsy"]
 [ext_resource type="PackedScene" uid="uid://dhrx4taeejhkt" path="res://Scenes/Prefabs/Coin.tscn" id="9_0h5bj"]
 [ext_resource type="Script" uid="uid://disgas3s0dxk0" path="res://Scripts/Spin.cs" id="10_fpsrd"]
 [ext_resource type="PackedScene" uid="uid://bjhfqaq47py4v" path="res://Scenes/Prefabs/Mega Enemy.tscn" id="10_o7j3t"]
@@ -28,18 +30,20 @@ albedo_color = Color(0, 1, 1, 0.3019608)
 material = SubResource("StandardMaterial3D_156p1")
 size = Vector3(3, 3, 3)
 
-[node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "endMenu", "hud", "menuPoint", "coin", "exit", "exitShape")]
+[node name="Game Manager" type="Node" unique_id=34629713 node_paths=PackedStringArray("spawner", "mainMenu", "pauseMenu", "endMenu", "settingsMenu", "hud", "menuPoint", "coin", "exit", "exitShape")]
 script = ExtResource("1_d2o0d")
 playerScene = ExtResource("2_3evnq")
 spawner = NodePath("Enemy Spawner")
 mainMenu = NodePath("CanvasLayer/Main Menu")
 pauseMenu = NodePath("CanvasLayer/Pause Menu")
 endMenu = NodePath("CanvasLayer/End Menu")
+settingsMenu = NodePath("CanvasLayer/Settings")
 hud = NodePath("CanvasLayer/HUD")
 menuPoint = NodePath("Pivot/Menu Camera")
 coin = NodePath("Coin")
 exit = NodePath("Exit Pivot/Exit")
 exitShape = NodePath("Exit Pivot/Exit/CollisionShape3D")
+exitSound = ExtResource("3_ajssi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1124059323]
 
@@ -53,6 +57,9 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="End Menu" parent="CanvasLayer" unique_id=841314270 instance=ExtResource("6_vqomo")]
+visible = false
+
+[node name="Settings" parent="CanvasLayer" unique_id=564888436 instance=ExtResource("8_wwhsy")]
 visible = false
 
 [node name="Scene" parent="." unique_id=1037443194 instance=ExtResource("3_tpd2j")]

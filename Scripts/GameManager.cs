@@ -12,12 +12,14 @@ public partial class GameManager : Node
     [Export] public MainMenu mainMenu;
     [Export] public PauseMenu pauseMenu;
     [Export] public EndMenu endMenu;
+    [Export] public Settings settingsMenu;
     [Export] public HUD hud;
 
     [Export] Node3D menuPoint;
     [Export] Coin coin;
 	[Export] Area3D exit;
     [Export] CollisionShape3D exitShape;
+    [Export] AudioStream exitSound;
 
     public Player player;
 	int coins = -1;
@@ -32,7 +34,6 @@ public partial class GameManager : Node
         Camera.Singleton.followTarget = menuPoint;
         Camera.Singleton.isControlledByMouse = false;
 
-        mainMenu.playButton.Pressed += StartGame;
         exit.BodyEntered += ExitTouched;
 	}
 
@@ -41,6 +42,7 @@ public partial class GameManager : Node
         if (body is Player player)
 		{
             EndGame(true);
+            AudioManager.Singleton.PlayStream(exitSound);
         }
     }
 

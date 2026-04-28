@@ -8,10 +8,12 @@ public partial class MainMenu : Control
 
 	public override void _Ready()
 	{
-	}
+        playButton.Pressed += () => GameManager.Singleton.StartGame();
+        settingsButton.Pressed += SettingsPressed;
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+    void SettingsPressed()
+    {
+        GameManager.Singleton.settingsMenu.Visible = true;
+    }
 }
