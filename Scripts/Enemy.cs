@@ -3,7 +3,11 @@ using System;
 
 public partial class Enemy : CharacterBody3D
 {
-	[Export] float speed;
+	[Export] float acceleration;
+    [Export] float maxSpeed;
+
+    Vector3 tracking;
+    float timeToTrack = 0f;
 
 	public override void _Process(double delta)
 	{
@@ -13,9 +17,11 @@ public partial class Enemy : CharacterBody3D
 
         Vector3 velocity = Velocity;
         Vector3 direction = (GameManager.Singleton.player.Position - Position) / Position.DistanceTo(GameManager.Singleton.player.Position);
-        Vector3 toPlayer = direction * speed;
-		velocity.X = toPlayer.X;
-		velocity.Z = toPlayer.Z;
+        Vector3 toPlayer = direction * acceleration;
+		velocity.X += toPlayer.X * (float)delta;
+        velocity.X = Mathf.Clamp(velocity.X, -maxSpeed, maxSpeed);
+		velocity.Z += toPlayer.Z * (float)delta;
+        velocity.Z = Mathf.Clamp(velocity.Z, -maxSpeed, maxSpeed);
 
         // Add the gravity.
         if (!IsOnFloor())

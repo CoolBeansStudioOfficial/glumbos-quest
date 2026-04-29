@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://oefgfcpuoewo"]
 
 [ext_resource type="Script" uid="uid://dym5kujh7jdkd" path="res://Scripts/HomingEnemy.cs" id="1_lunfu"]
-[ext_resource type="Texture2D" uid="uid://hhi38oegh5at" path="res://Images/Triangle Enemy.png" id="2_ef2xg"]
+[ext_resource type="Texture2D" uid="uid://be3oxk71x7jb5" path="res://Images/Triangle Enemy 32.png" id="2_ef2xg"]
 [ext_resource type="AudioStream" uid="uid://b30iyjjs2hx0s" path="res://Audio/Charge.wav" id="3_ef2xg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0l4qa"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjhfqaq47py4v"]
 
 [ext_resource type="Script" uid="uid://482rnsxgrixs" path="res://Scripts/Enemy.cs" id="1_yd7x3"]
-[ext_resource type="Texture2D" uid="uid://cc0m4pa4nbjre" path="res://Images/Square Enemy.png" id="2_bkfqs"]
+[ext_resource type="Texture2D" uid="uid://bvow0hdxlg5m3" path="res://Images/Square Enemy 32.png" id="2_yd7x3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ugnox"]
 size = Vector3(2.5, 5, 2.5)
@@ -9,7 +9,7 @@ size = Vector3(2.5, 5, 2.5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijqxc"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_bkfqs")
+albedo_texture = ExtResource("2_yd7x3")
 texture_filter = 0
 billboard_mode = 1
 stencil_flags = 2
@@ -20,7 +20,8 @@ size = Vector2(5, 5)
 
 [node name="Mega Enemy" type="CharacterBody3D" unique_id=321441980]
 script = ExtResource("1_yd7x3")
-speed = 8.0
+acceleration = 10.0
+maxSpeed = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625218609]
 shape = SubResource("BoxShape3D_ugnox")

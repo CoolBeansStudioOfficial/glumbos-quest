@@ -167,7 +167,7 @@ public partial class GameManager : Node
         }
             
 
-        if (respawnDelay) await Task.Delay(3000);
+        if (respawnDelay) await Task.Delay(6000);
         coin.Position = new(GD.RandRange(-20, 20), 0.5f, GD.RandRange(-20, 20));
         coin.Visible = true;
     }
