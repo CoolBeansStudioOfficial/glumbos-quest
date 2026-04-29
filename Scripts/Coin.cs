@@ -11,7 +11,14 @@ public partial class Coin : Area3D
         BodyEntered += Collected;
 	}
 
-    private async void Collected(Node3D body)
+    public override void _Process(double delta)
+    {
+        if (GameManager.Singleton.paused || GameManager.Singleton.player is null) return;
+        //rotates just in case billboard texture doesnt work for crap drivers
+        Transform = Transform.LookingAt(GameManager.Singleton.player.Position);
+    }
+
+    void Collected(Node3D body)
     {
         if (body is Player player)
         {

@@ -8,6 +8,8 @@ public partial class Enemy : CharacterBody3D
 	public override void _Process(double delta)
 	{
         if (GameManager.Singleton.paused || GameManager.Singleton.player is null) return;
+        //rotates just in case billboard texture doesnt work for crap drivers
+        Transform = Transform.LookingAt(GameManager.Singleton.player.Position);
 
         Vector3 velocity = Velocity;
         Vector3 direction = (GameManager.Singleton.player.Position - Position) / Position.DistanceTo(GameManager.Singleton.player.Position);

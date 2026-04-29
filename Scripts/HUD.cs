@@ -14,7 +14,6 @@ public partial class HUD : Control
 
 	public void SetHearts(int count)
 	{
-		GD.Print($"setting hearts hud to {count}");
 		foreach (var heart in hearts) heart.Visible = false;
 
 		if (count <= 0) return;

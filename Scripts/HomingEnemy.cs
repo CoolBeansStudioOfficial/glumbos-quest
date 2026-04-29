@@ -18,6 +18,8 @@ public partial class HomingEnemy : Enemy
     public override void _Process(double delta)
     {
         if (GameManager.Singleton.paused || GameManager.Singleton.player is null) return;
+        //rotates just in case billboard texture doesnt work for crap drivers
+        Transform = Transform.LookingAt(GameManager.Singleton.player.Position);
 
         if (secondsLeft > 0)
         {
