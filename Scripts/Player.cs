@@ -140,7 +140,7 @@ public partial class Player : CharacterBody3D
 		if (hitCooldown <= 0)
 		{
 			hearts--;
-			GameManager.Singleton.hud.SetHearts(hearts);
+			GameManager.Singleton.hud.SetHearts(hearts, true);
             Velocity = new(Velocity.X, JumpVelocity * 2, Velocity.Z);
             hitCooldown = 5;
 			AudioManager.Singleton.PlayStream(hitSound);
