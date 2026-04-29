@@ -20,7 +20,7 @@ material = SubResource("StandardMaterial3D_gn4wr")
 [node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530 node_paths=PackedStringArray("stream")]
 script = ExtResource("1_0l4qa")
 chargeSpeed = 32.5
-deceleration = 10.0
+deceleration = 15.0
 fallMultiplier = 1.0
 waitSeconds = 4.0
 stream = NodePath("AudioStreamPlayer3D")
