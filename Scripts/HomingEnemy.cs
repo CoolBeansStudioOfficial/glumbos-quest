@@ -8,6 +8,8 @@ public partial class HomingEnemy : Enemy
     [Export] float fallMultiplier;
     [Export] float waitSeconds;
 
+    [Export] AudioStreamPlayer3D stream;
+
     float secondsLeft;
 
     public override void _Ready()
@@ -31,6 +33,7 @@ public partial class HomingEnemy : Enemy
             Vector3 velocity = direction * chargeSpeed;
             Velocity = velocity;
 
+            stream.Play();
             secondsLeft = waitSeconds;
         }
 

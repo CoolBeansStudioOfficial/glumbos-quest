@@ -68,7 +68,7 @@ visible = false
 script = ExtResource("3_6ttaq")
 enemyScenes = Array[PackedScene]([ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("4_yvurs"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("5_uyn1v"), ExtResource("10_o7j3t"), ExtResource("11_r34ae")])
 spawnTime = 4.0
-maxEnemies = 50
+maxEnemies = 25
 
 [node name="Coin" parent="." unique_id=1069115014 instance=ExtResource("9_0h5bj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15, 0)
