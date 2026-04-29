@@ -54,7 +54,87 @@ content_margin_bottom = 4.0
 bg_color = Color(0.225, 0.225, 0.225, 0.6)
 corner_detail = 5
 
-[node name="Main Menu" type="Control" unique_id=147921874 node_paths=PackedStringArray("playButton", "settingsButton")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fr8ud"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1y0k"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkhnm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrx0y"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1x40"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkryc"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fl03d"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.029506557, 0.029506557, 0.029506557, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fn5vy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdp51"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl78e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+corner_detail = 5
+
+[node name="Main Menu" type="Control" unique_id=147921874 node_paths=PackedStringArray("playButton", "settingsButton", "backButton", "normalButton", "hardButton", "main", "play")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,8 +142,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_au62v")
-playButton = NodePath("VBoxContainer/Play")
-settingsButton = NodePath("VBoxContainer/Settings")
+playButton = NodePath("Main/Play")
+settingsButton = NodePath("Main/Settings")
+backButton = NodePath("Play/Back")
+normalButton = NodePath("Play/Play Options/VBoxContainer/Normal")
+hardButton = NodePath("Play/Play Options/VBoxContainer2/Abandon Hope")
+main = NodePath("Main")
+play = NodePath("Play")
 
 [node name="Panel" type="Panel" parent="." unique_id=1551214819]
 layout_mode = 1
@@ -92,7 +177,7 @@ theme_override_font_sizes/font_size = 80
 text = "Glumbo's Quest"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=507404914]
+[node name="Main" type="VBoxContainer" parent="." unique_id=507404914]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,7 +192,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Play" type="Button" parent="VBoxContainer" unique_id=554973180]
+[node name="Play" type="Button" parent="Main" unique_id=554973180]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -116,7 +201,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_f3c0k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1dce6")
 text = "Play"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=1676498782]
+[node name="Settings" type="Button" parent="Main" unique_id=1676498782]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -124,3 +209,78 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ko0jy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o2yn0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0kyo8")
 text = "Settings"
+
+[node name="Play" type="VBoxContainer" parent="." unique_id=1608059136]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -144.0
+offset_right = 196.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="Play" unique_id=287241370]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fr8ud")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1y0k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qkhnm")
+text = "Back"
+
+[node name="Play Options" type="HBoxContainer" parent="Play" unique_id=1191345916]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Play/Play Options" unique_id=810870008]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Normal" type="Button" parent="Play/Play Options/VBoxContainer" unique_id=1021988196]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrx0y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n1x40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nkryc")
+text = "Normal"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Play/Play Options/VBoxContainer" unique_id=729174723]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+text = "3 hearts, 10 coins to escape. Regular enemies + a few megas.
+Recommended for new players."
+
+[node name="Divider" type="Panel" parent="Play/Play Options" unique_id=242719053]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fl03d")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Play/Play Options" unique_id=256116036]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Abandon Hope" type="Button" parent="Play/Play Options/VBoxContainer2" unique_id=2060240477]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.99989146, 0.4010232, 0.33252522, 1)
+theme_override_colors/font_pressed_color = Color(0.6101606, 0, 0.003032093, 1)
+theme_override_colors/font_hover_color = Color(1, 0.5660453, 0.5045846, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_fn5vy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cdp51")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bl78e")
+text = "Abandon Hope"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Play/Play Options/VBoxContainer2" unique_id=145392812]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+bbcode_enabled = true
+text = "1 heart, 25 coins to escape. 
+[shake]Megas only.[/shake]
+Good luck, you're going to need it."

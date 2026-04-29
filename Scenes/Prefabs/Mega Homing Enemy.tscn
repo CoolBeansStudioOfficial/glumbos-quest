@@ -20,7 +20,7 @@ size = Vector2(5, 5)
 [node name="Mega Homing Enemy" type="CharacterBody3D" unique_id=1535562530]
 script = ExtResource("1_lunfu")
 chargeSpeed = 35.0
-deceleration = 0.1
+deceleration = 2.5
 fallMultiplier = 1.0
 waitSeconds = 4.0
 speed = 700.0

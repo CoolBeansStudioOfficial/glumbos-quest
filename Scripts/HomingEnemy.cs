@@ -21,7 +21,7 @@ public partial class HomingEnemy : Enemy
 
         if (secondsLeft > 0)
         {
-            Velocity = new(Mathf.MoveToward(Velocity.X, 0, deceleration), Velocity.Y, Mathf.MoveToward(Velocity.Z, 0, deceleration));
+            Velocity = new(Mathf.MoveToward(Velocity.X, 0, deceleration * (float)delta), Velocity.Y, Mathf.MoveToward(Velocity.Z, 0, deceleration * (float)delta));
         }
         else
         {

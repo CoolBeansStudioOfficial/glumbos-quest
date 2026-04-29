@@ -30,7 +30,18 @@ public partial class EnemySpawner : Node3D
 
 			if (enemies.Count > maxEnemies) return;
 
-            var enemy = enemyScenes[GD.RandRange(0, enemyScenes.Count() - 1)].Instantiate() as Enemy;
+			Enemy enemy;
+			//normal + megas
+            if (!GameManager.Singleton.hard)
+			{
+                enemy = enemyScenes[GD.RandRange(0, enemyScenes.Count() - 1)].Instantiate() as Enemy;
+            }
+			//megas only
+			else
+			{
+                enemy = enemyScenes[GD.RandRange(enemyScenes.Count() - 2, enemyScenes.Count() - 1)].Instantiate() as Enemy;
+            }
+                
 			enemy.Position = new(GD.RandRange(-50, 50), 10, GD.RandRange(-50, 50));
 			AddChild(enemy);
 			enemies.Add(enemy);

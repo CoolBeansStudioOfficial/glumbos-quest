@@ -14,6 +14,7 @@ public partial class HUD : Control
 
 	public void SetHearts(int count)
 	{
+		GD.Print($"setting hearts hud to {count}");
 		foreach (var heart in hearts) heart.Visible = false;
 
 		if (count <= 0) return;
@@ -36,6 +37,7 @@ public partial class HUD : Control
 
     public void SetCoins(int coins)
     {
-		coinsLabel.Text = $"Coins: {coins}/10";
+		if (!GameManager.Singleton.hard) coinsLabel.Text = $"Coins: {coins}/10";
+        else coinsLabel.Text = $"Coins: {coins}/25";
     }
 }

@@ -31,6 +31,11 @@ public partial class Player : CharacterBody3D
     public override void _Ready()
     {
         maxSpeed = SpeedCap;
+
+        if (!GameManager.Singleton.hard) hearts = 3;
+		else hearts = 1;
+
+        GameManager.Singleton.hud.SetHearts(hearts);
     }
 
 	public override void _Process(double delta)

@@ -23,6 +23,7 @@ public partial class GameManager : Node
 
     public Player player;
 	int coins = -1;
+    public bool hard = false;
 
 	public bool inMenu = true;
 	public bool paused = true;
@@ -93,7 +94,6 @@ public partial class GameManager : Node
 		spawner.Reset();
 
         hud.Visible = true;
-		hud.SetHearts(3);
 		hud.SetCoins(0);
         mainMenu.Visible = false;
 		endMenu.Visible = false;
@@ -109,6 +109,7 @@ public partial class GameManager : Node
 	{
 		hud.Visible = false;
 		endMenu.Visible = false;
+        mainMenu.Menu();
 		mainMenu.Visible = true;
 		inMenu = true;
 
@@ -145,11 +146,23 @@ public partial class GameManager : Node
         coins++;
         hud.SetCoins(coins);
 
-		if (coins == 10)
-		{
-			exit.Visible = true;
-			exitShape.Disabled = false;
-		}
+        if (!hard)
+        {
+            if (coins == 10)
+            {
+                exit.Visible = true;
+                exitShape.Disabled = false;
+            }
+        }
+        else
+        {
+            if (coins == 25)
+            {
+                exit.Visible = true;
+                exitShape.Disabled = false;
+            }
+        }
+            
 
         if (respawnDelay) await Task.Delay(3000);
         coin.Position = new(GD.RandRange(-20, 20), 0.5f, GD.RandRange(-20, 20));
