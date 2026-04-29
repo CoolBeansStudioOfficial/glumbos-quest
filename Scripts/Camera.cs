@@ -12,7 +12,7 @@ public partial class Camera : Node3D
     }
 
     [Export] public Camera3D camera;
-    [Export] Vector2 sensitivity;
+    [Export] public Vector2 sensitivity;
     [Export] RayCast3D raycast;
 
     public bool isControlledByMouse = true;
@@ -69,5 +69,4 @@ public partial class Camera : Node3D
         }
         else return angle;
     }
-
 }
