@@ -41,8 +41,15 @@ public partial class EnemySpawner : Node3D
 			{
                 enemy = enemyScenes[GD.RandRange(enemyScenes.Count() - 2, enemyScenes.Count() - 1)].Instantiate() as Enemy;
             }
-                
-			enemy.Position = new(GD.RandRange(-50, 50), 10, GD.RandRange(-50, 50));
+
+			Vector3 position = new(GD.RandRange(-50, 50), 10, GD.RandRange(-50, 50));
+			//reroll position if it is too close to the player
+			if (GameManager.Singleton.player is not null) while(position.DistanceTo(GameManager.Singleton.player.Position) < 10f)
+			{
+				position = new(GD.RandRange(-50, 50), 10, GD.RandRange(-50, 50));
+            }
+
+			enemy.Position = position;
 			AddChild(enemy);
 			enemies.Add(enemy);
 		}
