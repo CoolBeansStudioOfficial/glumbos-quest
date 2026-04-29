@@ -11,7 +11,7 @@ public partial class Enemy : CharacterBody3D
 
         Vector3 velocity = Velocity;
         Vector3 direction = (GameManager.Singleton.player.Position - Position) / Position.DistanceTo(GameManager.Singleton.player.Position);
-        Vector3 toPlayer = direction * speed * (float)delta;
+        Vector3 toPlayer = direction * speed;
 		velocity.X = toPlayer.X;
 		velocity.Z = toPlayer.Z;
 

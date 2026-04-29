@@ -20,7 +20,7 @@ size = Vector2(5, 5)
 
 [node name="Mega Enemy" type="CharacterBody3D" unique_id=321441980]
 script = ExtResource("1_yd7x3")
-speed = 2000.0
+speed = 10.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625218609]
 shape = SubResource("BoxShape3D_ugnox")
