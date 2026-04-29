@@ -17,7 +17,8 @@ public partial class GameManager : Node
 
     [Export] Node3D menuPoint;
     [Export] Coin coin;
-	[Export] Area3D exit;
+    [Export] AudioStream buttonSound;
+    [Export] Area3D exit;
     [Export] CollisionShape3D exitShape;
     [Export] AudioStream exitOpenSound;
     [Export] AudioStream exitSound;
@@ -46,6 +47,11 @@ public partial class GameManager : Node
             EndGame(true);
             AudioManager.Singleton.PlayStream(exitSound);
         }
+    }
+
+    public void ButtonSound()
+    {
+        AudioManager.Singleton.PlayStream(buttonSound);
     }
 
     public override void _Process(double delta)

@@ -26,28 +26,33 @@ public partial class MainMenu : Control
     void PlayButton_Pressed()
     {
         Menu(true);
+        GameManager.Singleton.ButtonSound();
     }
 
     void BackButton_Pressed()
     {
         Menu();
+        GameManager.Singleton.ButtonSound();
     }
 
     void NormalButton_Pressed()
     {
         GameManager.Singleton.hard = false;
         GameManager.Singleton.StartGame();
+        GameManager.Singleton.ButtonSound();
     }
 
     void HardButton_Pressed()
     {
         GameManager.Singleton.hard = true;
         GameManager.Singleton.StartGame();
+        GameManager.Singleton.ButtonSound();
     }
 
     void SettingsPressed()
     {
         GameManager.Singleton.settingsMenu.Visible = true;
+        GameManager.Singleton.ButtonSound();
     }
 
     public void Menu(bool game = false)

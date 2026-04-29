@@ -16,12 +16,14 @@ public partial class PauseMenu : Control
     void ContinueButton_Pressed()
     {
         GameManager.Singleton.SetPause(false);
+        GameManager.Singleton.ButtonSound();
     }
 
     void QuitButton_Pressed()
     {
         GameManager.Singleton.SetPause(false);
         GameManager.Singleton.QuitGame();
+        GameManager.Singleton.ButtonSound();
     }
 
     

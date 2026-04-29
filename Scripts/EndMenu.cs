@@ -19,11 +19,13 @@ public partial class EndMenu : Control
     void TryAgain()
     {
         GameManager.Singleton.StartGame();
+        GameManager.Singleton.ButtonSound();
     }
 
     void MainiMenu()
     {
         GameManager.Singleton.QuitGame();
+        GameManager.Singleton.ButtonSound();
     }
 
     public void SetWin(bool win, int count)

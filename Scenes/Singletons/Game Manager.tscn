@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://clh05muj2wsjm" path="res://Scripts/EnemySpawner.cs" id="3_6ttaq"]
 [ext_resource type="AudioStream" uid="uid://cryrb24ndvhnr" path="res://Audio/Exit Open.wav" id="3_48t1k"]
 [ext_resource type="AudioStream" uid="uid://bapvv67tb2i3x" path="res://Audio/Victory.wav" id="3_ajssi"]
+[ext_resource type="AudioStream" uid="uid://ce1ugfiehi4hm" path="res://Audio/Button.wav" id="3_hy00d"]
 [ext_resource type="PackedScene" uid="uid://c0gntryofpfrw" path="res://Scenes/Main Scene.tscn" id="3_tpd2j"]
 [ext_resource type="PackedScene" uid="uid://vw8g7u31uxc3" path="res://Scenes/Prefabs/Enemy.tscn" id="4_yvurs"]
 [ext_resource type="PackedScene" uid="uid://chj0lgu4cwbts" path="res://Scenes/UI/Pause Menu.tscn" id="5_gtgne"]
@@ -42,6 +43,7 @@ settingsMenu = NodePath("CanvasLayer/Settings")
 hud = NodePath("CanvasLayer/HUD")
 menuPoint = NodePath("Pivot/Menu Camera")
 coin = NodePath("Coin")
+buttonSound = ExtResource("3_hy00d")
 exit = NodePath("Exit Pivot/Exit")
 exitShape = NodePath("Exit Pivot/Exit/CollisionShape3D")
 exitOpenSound = ExtResource("3_48t1k")

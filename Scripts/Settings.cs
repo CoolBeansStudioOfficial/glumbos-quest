@@ -18,5 +18,6 @@ public partial class Settings : Panel
     private void Close()
     {
         Visible = false;
+        GameManager.Singleton.ButtonSound();
     }
 }
