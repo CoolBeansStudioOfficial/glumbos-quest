@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cryrb24ndvhnr"
+path="res://.godot/imported/Exit Open.wav-a879da1f57d1682f3ecc7bdd6b08e8ff.sample"
+
+[deps]
+
+source_file="res://Audio/Exit Open.wav"
+dest_files=["res://.godot/imported/Exit Open.wav-a879da1f57d1682f3ecc7bdd6b08e8ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ci0n2qntynnob" path="res://Scripts/GameManager.cs" id="1_d2o0d"]
 [ext_resource type="PackedScene" uid="uid://bynrgdbv2plcb" path="res://Scenes/Prefabs/Player.tscn" id="2_3evnq"]
 [ext_resource type="Script" uid="uid://clh05muj2wsjm" path="res://Scripts/EnemySpawner.cs" id="3_6ttaq"]
+[ext_resource type="AudioStream" uid="uid://cryrb24ndvhnr" path="res://Audio/Exit Open.wav" id="3_48t1k"]
 [ext_resource type="AudioStream" uid="uid://bapvv67tb2i3x" path="res://Audio/Victory.wav" id="3_ajssi"]
 [ext_resource type="PackedScene" uid="uid://c0gntryofpfrw" path="res://Scenes/Main Scene.tscn" id="3_tpd2j"]
 [ext_resource type="PackedScene" uid="uid://vw8g7u31uxc3" path="res://Scenes/Prefabs/Enemy.tscn" id="4_yvurs"]
@@ -43,6 +44,7 @@ menuPoint = NodePath("Pivot/Menu Camera")
 coin = NodePath("Coin")
 exit = NodePath("Exit Pivot/Exit")
 exitShape = NodePath("Exit Pivot/Exit/CollisionShape3D")
+exitOpenSound = ExtResource("3_48t1k")
 exitSound = ExtResource("3_ajssi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1124059323]

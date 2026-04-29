@@ -19,6 +19,7 @@ public partial class GameManager : Node
     [Export] Coin coin;
 	[Export] Area3D exit;
     [Export] CollisionShape3D exitShape;
+    [Export] AudioStream exitOpenSound;
     [Export] AudioStream exitSound;
 
     public Player player;
@@ -152,6 +153,7 @@ public partial class GameManager : Node
             {
                 exit.Visible = true;
                 exitShape.Disabled = false;
+                AudioManager.Singleton.PlayStream(exitOpenSound);
             }
         }
         else
@@ -160,6 +162,7 @@ public partial class GameManager : Node
             {
                 exit.Visible = true;
                 exitShape.Disabled = false;
+                AudioManager.Singleton.PlayStream(exitOpenSound);
             }
         }
             

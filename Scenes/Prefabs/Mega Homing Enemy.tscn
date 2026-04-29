@@ -36,5 +36,5 @@ mesh = SubResource("QuadMesh_e80hq")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=337257384]
 stream = ExtResource("3_ef2xg")
-volume_db = -2.0
+volume_db = -4.0
 pitch_scale = 0.5
