@@ -31,10 +31,20 @@ public partial class EnemySpawner : Node3D
 			if (enemies.Count > maxEnemies) return;
 
 			Enemy enemy;
-			//normal + megas
+			//normal
             if (!GameManager.Singleton.hard)
 			{
-                enemy = enemyScenes[GD.RandRange(0, enemyScenes.Count() - 1)].Instantiate() as Enemy;
+                //normal only
+                if (GameManager.Singleton.coins < 6)
+				{
+                    enemy = enemyScenes[GD.RandRange(0, enemyScenes.Count() - 3)].Instantiate() as Enemy;
+                }
+                //normal + megas
+                else
+                {
+                    enemy = enemyScenes[GD.RandRange(0, enemyScenes.Count() - 1)].Instantiate() as Enemy;
+                }
+                
             }
 			//megas only
 			else

@@ -23,7 +23,7 @@ public partial class GameManager : Node
     [Export] AudioStream exitSound;
 
     public Player player;
-	int coins = -1;
+	public int coins = -1;
     public bool hard = false;
 
 	public bool inMenu = true;
