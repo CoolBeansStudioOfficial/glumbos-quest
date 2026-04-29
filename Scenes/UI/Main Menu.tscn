@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://c7jvv0gxlclma"]
 
 [ext_resource type="Script" uid="uid://cl2s0evutx2w1" path="res://Scripts/MainMenu.cs" id="1_au62v"]
+[ext_resource type="Texture2D" uid="uid://y2fnt3m0obdv" path="res://Images/Glumbos Quest Logo.png" id="2_f3c0k"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1dce6"]
+texture = ExtResource("2_f3c0k")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au62v"]
 content_margin_left = 4.0
@@ -61,7 +65,20 @@ script = ExtResource("1_au62v")
 playButton = NodePath("VBoxContainer/Play")
 settingsButton = NodePath("VBoxContainer/Settings")
 
+[node name="Panel" type="Panel" parent="." unique_id=1551214819]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = -23.0
+offset_right = 375.0
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1dce6")
+
 [node name="Label" type="Label" parent="." unique_id=744194212]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
