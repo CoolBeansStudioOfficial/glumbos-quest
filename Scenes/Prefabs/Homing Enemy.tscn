@@ -17,12 +17,13 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_e80hq"]
 material = SubResource("StandardMaterial3D_gn4wr")
 
-[node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530 node_paths=PackedStringArray("stream")]
+[node name="Homing Enemy" type="CharacterBody3D" unique_id=1535562530 node_paths=PackedStringArray("stream", "stream")]
 script = ExtResource("1_0l4qa")
 chargeSpeed = 28.0
 deceleration = 15.0
 fallMultiplier = 1.0
 waitSeconds = 4.0
+stream = NodePath("AudioStreamPlayer3D")
 stream = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=542976626]

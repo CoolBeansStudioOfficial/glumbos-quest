@@ -28,7 +28,7 @@ public partial class EnemySpawner : Node3D
 		{
             timeLeft = spawnTime;
 
-			if (enemies.Count > maxEnemies) return;
+			if (enemies.Count > maxEnemies || (GameManager.Singleton.hard && enemies.Count > maxEnemies / 2)) return;
 
 			Enemy enemy;
 			//normal

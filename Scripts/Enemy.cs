@@ -6,6 +6,8 @@ public partial class Enemy : CharacterBody3D
 	[Export] float acceleration;
     [Export] float maxSpeed;
 
+    [Export] AudioStreamPlayer3D stream;
+
     Vector3 tracking;
     float timeToTrack = 0f;
 
@@ -39,5 +41,8 @@ public partial class Enemy : CharacterBody3D
                 player.Hit();
             }
         }
+
+        stream.PitchScale = Mathf.Clamp(Velocity.Length() / maxSpeed, 0.1f, 1f);
+        if (!stream.Playing) stream.Play();
     }
 }

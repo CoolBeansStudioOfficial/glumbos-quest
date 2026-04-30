@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://482rnsxgrixs" path="res://Scripts/Enemy.cs" id="1_yd7x3"]
 [ext_resource type="Texture2D" uid="uid://bvow0hdxlg5m3" path="res://Images/Square Enemy 32.png" id="2_yd7x3"]
+[ext_resource type="AudioStream" uid="uid://bgph0y231fea6" path="res://Audio/Enemy.wav" id="3_bkfqs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ugnox"]
 size = Vector3(2.5, 5, 2.5)
@@ -18,10 +19,11 @@ stencil_flags = 2
 material = SubResource("StandardMaterial3D_ijqxc")
 size = Vector2(5, 5)
 
-[node name="Mega Enemy" type="CharacterBody3D" unique_id=321441980]
+[node name="Mega Enemy" type="CharacterBody3D" unique_id=321441980 node_paths=PackedStringArray("stream")]
 script = ExtResource("1_yd7x3")
 acceleration = 10.0
 maxSpeed = 15.0
+stream = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1625218609]
 shape = SubResource("BoxShape3D_ugnox")
@@ -29,3 +31,6 @@ shape = SubResource("BoxShape3D_ugnox")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1795611012]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("QuadMesh_kfuwx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1957683452]
+stream = ExtResource("3_bkfqs")
