@@ -1,6 +1,6 @@
 <img width="750" height="250" alt="Glumbos Quest Banner" src="https://github.com/user-attachments/assets/219fa185-6255-40dd-9086-0da671e66ca3" />
 
-#  ![DOWNLOAD](https://coolbeansstudioofficial.github.io/glumbo-site/)
+#  [DOWNLOAD](https://coolbeansstudioofficial.github.io/glumbo-site/)
 
 <br/>
 
